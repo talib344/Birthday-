@@ -4,881 +4,1670 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>Happy Birthday Zahreen ✨</title>
+<title>For Zahreen — A Special Day</title>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:#020204;
-  color:#fff;
-  font-family:'DM Sans',sans-serif;
-  overflow-x:hidden;
+    background:#050505;
+    color:#f8f4eb;
+    font-family:'DM Sans',sans-serif;
+    overflow-x:hidden;
 }
 
-/* ================= VIDEO BACKGROUND ================= */
+button{
+    font:inherit;
+}
+
+/* =========================================================
+   CINEMATIC VIDEO
+========================================================= */
 
 .bg-video{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:-10;
-  filter:brightness(.32) contrast(1.15) saturate(1.2);
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-20;
+
+    filter:
+        brightness(.28)
+        contrast(1.15)
+        saturate(.75);
+
+    transform:scale(1.03);
 }
 
-.video-overlay{
-  position:fixed;
-  inset:0;
-  z-index:-9;
-  background:
-    radial-gradient(circle at 50% 20%,rgba(255,190,90,.14),transparent 35%),
-    radial-gradient(circle at 10% 80%,rgba(0,255,255,.12),transparent 35%),
-    radial-gradient(circle at 90% 70%,rgba(255,0,170,.12),transparent 35%),
-    linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.8));
+.video-darkness{
+    position:fixed;
+    inset:0;
+    z-index:-19;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.35) 0%,
+            rgba(0,0,0,.18) 35%,
+            rgba(0,0,0,.72) 100%
+        );
 }
 
-/* ================= AURORA ================= */
+/* =========================================================
+   GOLD CINEMATIC LIGHT
+========================================================= */
 
-.aurora{
-  position:fixed;
-  width:600px;
-  height:600px;
-  border-radius:50%;
-  filter:blur(100px);
-  opacity:.18;
-  pointer-events:none;
-  z-index:-8;
-  animation:auroraMove 12s ease-in-out infinite alternate;
+.gold-light{
+    position:fixed;
+    width:520px;
+    height:520px;
+    border-radius:50%;
+
+    background:#d6a94f;
+
+    filter:blur(150px);
+    opacity:.09;
+
+    pointer-events:none;
+    z-index:-18;
+
+    animation:
+        luxuryLight 12s ease-in-out infinite alternate;
 }
 
-.aurora.one{
-  background:#00ffff;
-  top:-300px;
-  left:-250px;
+.gold-light.one{
+    top:-260px;
+    left:-220px;
 }
 
-.aurora.two{
-  background:#ff00cc;
-  right:-300px;
-  bottom:-300px;
-  animation-delay:2s;
+.gold-light.two{
+    right:-280px;
+    bottom:-280px;
+    animation-delay:3s;
 }
 
-@keyframes auroraMove{
-  from{
-    transform:translate(0,0) scale(1);
-  }
-  to{
-    transform:translate(80px,60px) scale(1.2);
-  }
+@keyframes luxuryLight{
+
+    from{
+        transform:translate(0,0) scale(1);
+    }
+
+    to{
+        transform:translate(80px,70px) scale(1.18);
+    }
 }
 
-/* ================= GRID ================= */
+/* =========================================================
+   FILM GRAIN
+========================================================= */
 
-.grid{
-  position:fixed;
-  inset:0;
-  z-index:-7;
-  opacity:.18;
-  background-image:
-    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
-  background-size:55px 55px;
-  mask-image:linear-gradient(to bottom,black,transparent);
+.grain{
+    position:fixed;
+    inset:-50%;
+    width:200%;
+    height:200%;
+
+    pointer-events:none;
+    z-index:50;
+
+    opacity:.035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+
+    animation:grainMove .2s steps(2) infinite;
 }
 
-/* ================= PARTICLES ================= */
+@keyframes grainMove{
+
+    0%{
+        transform:translate(0,0);
+    }
+
+    25%{
+        transform:translate(2%,-1%);
+    }
+
+    50%{
+        transform:translate(-1%,2%);
+    }
+
+    75%{
+        transform:translate(1%,1%);
+    }
+
+    100%{
+        transform:translate(-2%,-1%);
+    }
+}
+
+/* =========================================================
+   PARTICLES
+========================================================= */
 
 .particle{
-  position:fixed;
-  width:3px;
-  height:3px;
-  border-radius:50%;
-  background:#fff;
-  box-shadow:
-    0 0 8px #fff,
-    0 0 18px rgba(0,255,255,.8);
-  pointer-events:none;
-  z-index:-3;
-  animation:particleFloat linear infinite;
+    position:fixed;
+
+    width:2px;
+    height:2px;
+
+    background:#e9c878;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 8px rgba(236,199,112,.9);
+
+    pointer-events:none;
+    z-index:-5;
+
+    animation:rise linear infinite;
 }
 
-@keyframes particleFloat{
-  0%{
-    transform:translateY(110vh) scale(.4);
-    opacity:0;
-  }
+@keyframes rise{
 
-  15%{
-    opacity:1;
-  }
+    from{
+        transform:translateY(110vh);
+        opacity:0;
+    }
 
-  85%{
-    opacity:1;
-  }
+    15%{
+        opacity:.8;
+    }
 
-  100%{
-    transform:translateY(-20vh) scale(1.2);
-    opacity:0;
-  }
+    85%{
+        opacity:.5;
+    }
+
+    to{
+        transform:translateY(-15vh);
+        opacity:0;
+    }
 }
 
-/* ================= MAIN ================= */
+/* =========================================================
+   PAGE
+========================================================= */
 
-main{
-  width:100%;
+.page{
+    position:relative;
+    z-index:1;
 }
 
-/* ================= HERO ================= */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-  min-height:100svh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:30px 20px;
-  position:relative;
+    min-height:100svh;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:
+        35px
+        20px
+        70px;
+
+    position:relative;
 }
 
-.top-badge{
-  padding:9px 17px;
-  border:1px solid rgba(255,215,130,.45);
-  border-radius:100px;
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(15px);
-  color:#ffe6a4;
-  font-size:.72rem;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  box-shadow:
-    0 0 25px rgba(255,200,100,.12),
-    inset 0 0 15px rgba(255,255,255,.04);
-  margin-bottom:24px;
-  animation:badgeGlow 3s ease-in-out infinite;
+/* top ornament */
+
+.ornament{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+    color:#d9b86c;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    animation:fadeUp 1.5s ease both;
 }
 
-@keyframes badgeGlow{
-  50%{
+.ornament::before,
+.ornament::after{
+    content:"";
+
+    width:35px;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c9a75b
+        );
+}
+
+.ornament::after{
+    background:
+        linear-gradient(
+            90deg,
+            #c9a75b,
+            transparent
+        );
+}
+
+/* =========================================================
+   HERO TYPOGRAPHY
+========================================================= */
+
+.hero-small{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            2.2rem,
+            8vw,
+            5rem
+        );
+
+    font-weight:500;
+
+    line-height:.9;
+
+    color:#f6f1e7;
+
+    animation:
+        fadeUp 1.5s .1s ease both;
+}
+
+.hero-name{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            5rem,
+            22vw,
+            12rem
+        );
+
+    line-height:.78;
+
+    font-weight:600;
+
+    letter-spacing:-3px;
+
+    margin:15px 0 25px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #9b7431,
+            #f9e4a6,
+            #fff5d1,
+            #c79b45,
+            #f3d98c
+        );
+
+    background-size:250% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    filter:
+        drop-shadow(
+            0 15px 35px
+            rgba(196,153,66,.14)
+        );
+
+    animation:
+        goldShine 6s linear infinite,
+        fadeUp 1.6s .2s ease both;
+}
+
+@keyframes goldShine{
+
+    to{
+        background-position:250% center;
+    }
+}
+
+.hero-line{
+    width:80px;
+    height:1px;
+
+    margin:5px auto 22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d8b568,
+            transparent
+        );
+
+    animation:fadeUp 1.5s .3s ease both;
+}
+
+.hero-description{
+    max-width:470px;
+
+    color:rgba(255,255,255,.68);
+
+    font-size:
+        clamp(
+            .85rem,
+            3vw,
+            1rem
+        );
+
+    line-height:1.8;
+
+    font-weight:300;
+
+    animation:
+        fadeUp 1.5s .4s ease both;
+}
+
+/* =========================================================
+   PREMIUM BUTTON
+========================================================= */
+
+.hero-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:32px;
+
+    animation:
+        fadeUp 1.5s .5s ease both;
+}
+
+.luxury-btn{
+
+    position:relative;
+
+    min-width:190px;
+
+    padding:15px 25px;
+
+    border-radius:100px;
+
+    border:1px solid
+        rgba(223,190,112,.55);
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8c978,
+            #a77a2e
+        );
+
+    color:#171208;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:1.8px;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
     box-shadow:
-      0 0 40px rgba(255,200,100,.25),
-      inset 0 0 15px rgba(255,255,255,.06);
-  }
+        0 12px 40px
+        rgba(181,139,54,.18);
+
+    overflow:hidden;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
 }
 
-/* ================= TITLE ================= */
+.luxury-btn::before{
 
-.small-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.8rem,7vw,3.5rem);
-  font-weight:600;
-  letter-spacing:2px;
-  color:#fff;
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:80%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.55),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    transition:.7s;
 }
 
-.main-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(4rem,18vw,9rem);
-  line-height:.9;
-  margin:8px 0 18px;
-
-  background:linear-gradient(
-    120deg,
-    #fff,
-    #ffe4a3 25%,
-    #fff 45%,
-    #e6b85c 70%,
-    #fff
-  );
-
-  background-size:250% auto;
-
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-
-  animation:
-    shine 5s linear infinite,
-    titleFloat 4s ease-in-out infinite;
-
-  filter:
-    drop-shadow(0 0 20px rgba(255,210,120,.22));
+.luxury-btn:hover::before{
+    left:140%;
 }
 
-@keyframes shine{
-  to{
-    background-position:250% center;
-  }
+.luxury-btn:hover{
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 18px 55px
+        rgba(205,163,76,.3);
 }
 
-@keyframes titleFloat{
-  50%{
-    transform:translateY(-5px);
-  }
+.luxury-btn.secondary{
+
+    background:
+        rgba(255,255,255,.045);
+
+    color:#eee;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    box-shadow:none;
+
+    backdrop-filter:blur(15px);
 }
 
-.subtitle{
-  max-width:600px;
-  color:rgba(255,255,255,.78);
-  font-size:clamp(.95rem,3vw,1.25rem);
-  line-height:1.7;
-}
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
 
-/* ================= BUTTON ================= */
+.scroll-indicator{
 
-.actions{
-  display:flex;
-  gap:12px;
-  margin-top:32px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
+    position:absolute;
 
-.btn{
-  border:none;
-  cursor:pointer;
-  padding:15px 25px;
-  border-radius:14px;
-  font-family:'DM Sans',sans-serif;
-  font-size:.9rem;
-  font-weight:700;
-  letter-spacing:.4px;
-  transition:.3s;
-  position:relative;
-  overflow:hidden;
-}
+    bottom:28px;
 
-.btn-primary{
-  color:#090909;
-  background:linear-gradient(
-    135deg,
-    #fff1bd,
-    #dba94f,
-    #fff1bd
-  );
-  box-shadow:
-    0 10px 35px rgba(230,180,70,.22);
-}
+    left:50%;
 
-.btn-primary:hover{
-  transform:translateY(-4px) scale(1.02);
-  box-shadow:
-    0 15px 50px rgba(230,180,70,.4);
-}
+    transform:translateX(-50%);
 
-.btn-secondary{
-  color:#fff;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.07);
-  backdrop-filter:blur(15px);
-}
+    display:flex;
 
-.btn-secondary:hover{
-  transform:translateY(-3px);
-  background:rgba(255,255,255,.12);
-}
+    flex-direction:column;
 
-/* ================= SCROLL ================= */
+    align-items:center;
 
-.scroll{
-  position:absolute;
-  bottom:25px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:8px;
-  color:rgba(255,255,255,.45);
-  font-size:.65rem;
-  letter-spacing:2px;
+    gap:8px;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size:8px;
+
+    letter-spacing:3px;
 }
 
 .scroll-line{
-  width:1px;
-  height:35px;
-  background:linear-gradient(#fff,transparent);
-  animation:scrollAnim 1.7s infinite;
+
+    width:1px;
+    height:35px;
+
+    background:
+        linear-gradient(
+            #d4b66c,
+            transparent
+        );
+
+    animation:
+        scrollDown 1.8s infinite;
 }
 
-@keyframes scrollAnim{
-  50%{
-    transform:translateY(10px);
-    opacity:.3;
-  }
+@keyframes scrollDown{
+
+    0%,100%{
+        transform:scaleY(.5);
+        transform-origin:top;
+    }
+
+    50%{
+        transform:scaleY(1);
+        transform-origin:top;
+    }
 }
 
-/* ================= MESSAGE SECTION ================= */
+/* =========================================================
+   SECTION
+========================================================= */
 
 .section{
-  padding:100px 20px;
-  position:relative;
+
+    padding:
+        110px
+        18px;
 }
 
 .container{
-  width:min(900px,100%);
-  margin:auto;
-}
 
-.glass{
-  border:1px solid rgba(255,255,255,.12);
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.09),
-      rgba(255,255,255,.025)
+    width:min(
+        900px,
+        100%
     );
-  backdrop-filter:blur(35px);
-  -webkit-backdrop-filter:blur(35px);
-  border-radius:30px;
-  box-shadow:
-    0 30px 100px rgba(0,0,0,.45),
-    inset 0 1px 0 rgba(255,255,255,.1);
+
+    margin:auto;
 }
 
-.message-card{
-  padding:clamp(28px,7vw,70px);
-  text-align:center;
-  position:relative;
-  overflow:hidden;
+/* =========================================================
+   LUXURY CARD
+========================================================= */
+
+.luxury-card{
+
+    position:relative;
+
+    padding:
+        clamp(
+            35px,
+            7vw,
+            75px
+        );
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.018)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    backdrop-filter:
+        blur(35px)
+        saturate(120%);
+
+    -webkit-backdrop-filter:
+        blur(35px)
+        saturate(120%);
+
+    box-shadow:
+
+        0 35px 100px
+        rgba(0,0,0,.5),
+
+        inset
+        0 1px 0
+        rgba(255,255,255,.12);
+
+    overflow:hidden;
 }
 
-.message-card::before{
-  content:"";
-  position:absolute;
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  background:#ffb7dc;
-  filter:blur(100px);
-  opacity:.08;
-  top:-100px;
-  left:-80px;
+/* gold corner */
+
+.luxury-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    top:-120px;
+    right:-80px;
+
+    border-radius:50%;
+
+    background:#d8ad55;
+
+    filter:blur(90px);
+
+    opacity:.09;
 }
 
-.message-card::after{
-  content:"";
-  position:absolute;
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  background:#00ffff;
-  filter:blur(100px);
-  opacity:.07;
-  bottom:-120px;
-  right:-80px;
+.card-top{
+
+    text-align:center;
+
+    margin-bottom:30px;
 }
 
-.section-label{
-  color:#e6bd67;
-  font-size:.7rem;
-  font-weight:700;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:15px;
+.card-label{
+
+    color:#d5b263;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
 }
 
-.message-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,8vw,4rem);
-  margin-bottom:25px;
+.card-title{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            2.5rem,
+            9vw,
+            5rem
+        );
+
+    line-height:.95;
+
+    font-weight:600;
+}
+
+.card-title span{
+
+    color:#d7b468;
 }
 
 .message{
-  color:rgba(255,255,255,.82);
-  font-size:clamp(1rem,3.5vw,1.2rem);
-  line-height:2;
+
+    text-align:center;
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-size:
+        clamp(
+            .9rem,
+            3vw,
+            1.08rem
+        );
+
+    line-height:2;
+
+    font-weight:300;
 }
 
-/* ================= QUOTE ================= */
+.message strong{
+
+    color:#ead18c;
+
+    font-weight:500;
+}
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin:35px 0;
+}
+
+.divider-line{
+
+    height:1px;
+
+    width:55px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,177,95,.55)
+        );
+}
+
+.divider-line:last-child{
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(212,177,95,.55),
+            transparent
+        );
+}
+
+.divider-symbol{
+
+    color:#d8b568;
+
+    font-size:10px;
+}
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-section{
+
+    padding:
+        30px 20px
+        120px;
+
+    text-align:center;
+}
 
 .quote{
-  margin-top:20px;
-  padding:30px 20px;
-  text-align:center;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            2rem,
+            7vw,
+            4rem
+        );
+
+    line-height:1.15;
+
+    font-weight:500;
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#f5efe3;
 }
 
-.quote p{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.5rem,5vw,2.5rem);
-  line-height:1.4;
-  color:#fff;
+.quote em{
+
+    color:#d8b66c;
+
+    font-style:normal;
 }
 
-.quote span{
-  display:block;
-  margin-top:15px;
-  color:#dcb76b;
-  font-size:.75rem;
-  letter-spacing:2px;
+.quote-author{
+
+    margin-top:22px;
+
+    color:
+        rgba(255,255,255,.4);
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
 }
 
-/* ================= SURPRISE ================= */
+/* =========================================================
+   SURPRISE
+========================================================= */
 
 .surprise{
-  text-align:center;
-  padding:100px 20px 130px;
+
+    padding:
+        100px 20px
+        130px;
+
+    text-align:center;
 }
 
-.gift{
-  width:90px;
-  height:90px;
-  margin:0 auto 25px;
-  border-radius:25px;
+.gift-orbit{
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    width:100px;
+    height:100px;
 
-  font-size:40px;
+    margin:
+        0 auto
+        30px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.13),
-      rgba(255,255,255,.03)
-    );
+    border-radius:50%;
 
-  border:1px solid rgba(255,255,255,.18);
+    border:
+        1px solid
+        rgba(215,181,101,.35);
 
-  box-shadow:
-    0 0 50px rgba(255,180,80,.14),
-    inset 0 0 25px rgba(255,255,255,.05);
+    display:flex;
 
-  animation:giftFloat 3s ease-in-out infinite;
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    background:
+        rgba(255,255,255,.035);
+
+    box-shadow:
+        0 0 60px
+        rgba(212,171,74,.1);
+
+    animation:
+        orbitFloat 4s ease-in-out infinite;
 }
 
-@keyframes giftFloat{
-  50%{
-    transform:translateY(-10px) rotate(2deg);
-  }
+.gift-orbit::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-12px;
+
+    border-radius:50%;
+
+    border:
+        1px dashed
+        rgba(214,181,101,.18);
+
+    animation:
+        rotate 15s linear infinite;
 }
 
-.surprise h2{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,8vw,4rem);
-  margin-bottom:15px;
+.gift-orbit span{
+
+    font-size:36px;
 }
 
-.surprise p{
-  color:rgba(255,255,255,.65);
-  margin-bottom:28px;
+@keyframes orbitFloat{
+
+    50%{
+        transform:translateY(-8px);
+    }
 }
 
-/* ================= FOOTER ================= */
+@keyframes rotate{
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.surprise-title{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            2.5rem,
+            9vw,
+            5rem
+        );
+
+    margin-bottom:12px;
+}
+
+.surprise-text{
+
+    color:
+        rgba(255,255,255,.5);
+
+    font-size:.9rem;
+
+    margin-bottom:28px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-  text-align:center;
-  padding:25px 20px 35px;
-  color:rgba(255,255,255,.35);
-  font-size:.75rem;
+
+    padding:
+        25px
+        20px
+        40px;
+
+    text-align:center;
+
+    color:
+        rgba(255,255,255,.25);
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
 }
 
-footer strong{
-  color:#dfba6a;
+footer span{
+
+    color:#d4b165;
 }
 
-/* ================= CONFETTI ================= */
+/* =========================================================
+   CONFETTI
+========================================================= */
 
 .confetti{
-  position:fixed;
-  width:7px;
-  height:12px;
-  z-index:100;
-  pointer-events:none;
-  border-radius:2px;
+
+    position:fixed;
+
+    width:5px;
+    height:10px;
+
+    border-radius:1px;
+
+    pointer-events:none;
+
+    z-index:100;
 }
 
-/* ================= MOBILE ================= */
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:600px){
 
-  .hero{
-    padding:25px 18px;
-  }
+    .bg-video{
+        filter:
+            brightness(.24)
+            contrast(1.1)
+            saturate(.7);
+    }
 
-  .top-badge{
-    font-size:.62rem;
-    padding:8px 14px;
-  }
+    .hero{
+        padding-left:18px;
+        padding-right:18px;
+    }
 
-  .main-title{
-    font-size:19vw;
-    letter-spacing:-1px;
-  }
+    .hero-name{
 
-  .small-title{
-    font-size:8vw;
-  }
+        font-size:
+            22vw;
 
-  .subtitle{
-    font-size:.9rem;
-    max-width:330px;
-  }
+        letter-spacing:-2px;
+    }
 
-  .actions{
-    width:100%;
-    flex-direction:column;
-    align-items:center;
-  }
+    .hero-small{
 
-  .btn{
-    width:min(300px,100%);
-    padding:15px 20px;
-  }
+        font-size:
+            10vw;
+    }
 
-  .section{
-    padding:70px 15px;
-  }
+    .hero-description{
 
-  .message-card{
-    border-radius:24px;
-    padding:38px 22px;
-  }
+        max-width:330px;
 
-  .message{
-    font-size:.95rem;
-    line-height:1.9;
-  }
+        font-size:.86rem;
+    }
 
-  .quote{
-    padding:30px 10px;
-  }
+    .hero-actions{
 
-  .quote p{
-    font-size:1.45rem;
-  }
+        width:100%;
 
-  .surprise{
-    padding:80px 20px 100px;
-  }
+        flex-direction:column;
 
-  .grid{
-    background-size:35px 35px;
-  }
+        margin-top:28px;
+    }
 
-  .aurora{
-    width:400px;
-    height:400px;
-  }
+    .luxury-btn{
+
+        width:
+            min(
+                290px,
+                100%
+            );
+    }
+
+    .section{
+
+        padding:
+            75px 14px;
+    }
+
+    .luxury-card{
+
+        border-radius:25px;
+
+        padding:
+            40px 22px;
+    }
+
+    .message{
+
+        line-height:1.9;
+    }
+
+    .quote-section{
+
+        padding:
+            20px 20px
+            90px;
+    }
+
+    .quote{
+
+        font-size:
+            1.9rem;
+    }
+
+    .surprise{
+
+        padding:
+            80px 20px
+            100px;
+    }
+
+    .gold-light{
+
+        width:350px;
+        height:350px;
+
+        filter:blur(110px);
+    }
 }
 
-/* Reduce animations for accessibility */
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
 @media(prefers-reduced-motion:reduce){
-  *,
-  *::before,
-  *::after{
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
-    scroll-behavior:auto !important;
-  }
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        scroll-behavior:auto !important;
+
+        transition:none !important;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- EXISTING VIDEO — DO NOT REMOVE -->
-<video class="bg-video" autoplay muted loop playsinline>
-  <source src="Zahreen-video.mp4" type="video/mp4">
+<!-- =======================================================
+     EXISTING VIDEO — KEPT
+======================================================= -->
+
+<video
+    class="bg-video"
+    autoplay
+    muted
+    loop
+    playsinline>
+
+    <source
+        src="Zahreen-video.mp4"
+        type="video/mp4">
+
 </video>
 
-<div class="video-overlay"></div>
-<div class="grid"></div>
+<div class="video-darkness"></div>
 
-<div class="aurora one"></div>
-<div class="aurora two"></div>
+<div class="gold-light one"></div>
+<div class="gold-light two"></div>
 
-<!-- PARTICLES -->
+<div class="grain"></div>
+
+
+<!-- =======================================================
+     PARTICLES
+======================================================= -->
+
 <script>
-for(let i=0;i<55;i++){
 
-  const p=document.createElement("div");
+for(let i=0;i<45;i++){
 
-  p.className="particle";
+    const particle =
+        document.createElement("div");
 
-  p.style.left=Math.random()*100+"vw";
-  p.style.animationDuration=(8+Math.random()*15)+"s";
-  p.style.animationDelay=(-Math.random()*20)+"s";
-  p.style.opacity=Math.random();
+    particle.className="particle";
 
-  document.body.appendChild(p);
+    particle.style.left =
+        Math.random()*100+"vw";
+
+    particle.style.animationDuration =
+        (10 + Math.random()*16)+"s";
+
+    particle.style.animationDelay =
+        (-Math.random()*20)+"s";
+
+    particle.style.opacity =
+        .2 + Math.random()*.7;
+
+    document.body.appendChild(particle);
 }
+
 </script>
 
 
-<main>
+<div class="page">
 
-<!-- ================= HERO ================= -->
+
+<!-- =======================================================
+     HERO
+======================================================= -->
 
 <section class="hero">
 
-  <div class="top-badge">
-    ✦ A Special Day For Someone Special ✦
-  </div>
+    <div class="ornament">
+        A Day Worth Celebrating
+    </div>
 
-  <div class="small-title">
-    Happy Birthday
-  </div>
+    <div class="hero-small">
+        Happy Birthday
+    </div>
 
-  <h1 class="main-title">
-    ZAHREEN
-  </h1>
+    <h1 class="hero-name">
+        ZAHREEN
+    </h1>
 
-  <p class="subtitle">
-    Some people enter your life and quietly become
-    a beautiful part of your universe. ✨
-  </p>
+    <div class="hero-line"></div>
 
-  <div class="actions">
+    <p class="hero-description">
 
-    <button class="btn btn-primary" onclick="celebrate()">
-      ✨ Open Your Surprise
-    </button>
+        Today isn't just another date on the calendar.
+        It's a reminder that someone truly special
+        came into this world. ✨
 
-    <button class="btn btn-secondary"
-            onclick="document.getElementById('message').scrollIntoView()">
-      💌 Read My Message
-    </button>
+    </p>
 
-  </div>
+    <div class="hero-actions">
 
-  <div class="scroll">
-    <span>SCROLL TO EXPLORE</span>
-    <div class="scroll-line"></div>
-  </div>
+        <button
+            class="luxury-btn"
+            onclick="openSurprise()">
+
+            Open Your Surprise
+
+        </button>
+
+        <button
+            class="luxury-btn secondary"
+            onclick="goMessage()">
+
+            A Message For You
+
+        </button>
+
+    </div>
+
+
+    <div class="scroll-indicator">
+
+        <span>DISCOVER</span>
+
+        <div class="scroll-line"></div>
+
+    </div>
 
 </section>
 
 
-<!-- ================= MESSAGE ================= -->
+<!-- =======================================================
+     MESSAGE
+======================================================= -->
 
-<section class="section" id="message">
+<section
+    class="section reveal"
+    id="message">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="glass message-card">
+        <div class="luxury-card">
 
-      <div class="section-label">
-        A Little Message
-      </div>
+            <div class="card-top">
 
-      <h2 class="message-title">
-        For Zahreen ❤️
-      </h2>
+                <div class="card-label">
+                    A Personal Note
+                </div>
 
-      <p class="message">
+                <h2 class="card-title">
+                    For <span>Zahreen</span>
+                </h2>
 
-        Zahreen, tum meri zindagi ki un khoobsurat
-        cheezon mein se ho jinke liye words kabhi
-        enough nahi hote. ✨
+            </div>
 
-        <br><br>
 
-        Tumhari dosti mere liye sirf ek friendship nahi,
-        balki ek beautiful feeling hai.
+            <div class="divider">
 
-        <br><br>
+                <div class="divider-line"></div>
 
-        Aaj tumhara special day hai,
-        aur meri dil se dua hai ke tumhari life
-        hamesha happiness, success aur beautiful
-        memories se bhari rahe. 🌙
+                <div class="divider-symbol">
+                    ✦
+                </div>
 
-        <br><br>
+                <div class="divider-line"></div>
 
-        Stay exactly the way you are...
-        because that's what makes you special. ❤️
+            </div>
 
-      </p>
+
+            <p class="message">
+
+                Zahreen,
+
+                <br><br>
+
+                Tum meri zindagi ki un khoobsurat
+                cheezon mein se ho jinke liye
+                simple words kabhi enough nahi hote.
+
+                <br><br>
+
+                Tumhari <strong>dosti</strong> mere liye
+                sirf ek relationship ka naam nahi,
+                balki ek aisi beautiful feeling hai
+                jo time ke saath aur special hoti gayi.
+
+                <br><br>
+
+                Aaj ka din sirf tumhari birthday
+                nahi hai...
+
+                <br><br>
+
+                It's a celebration of
+                <strong>YOU.</strong>
+
+                <br><br>
+
+                Meri dil se dua hai ke tumhari life
+                hamesha happiness, success,
+                peace aur beautiful memories
+                se bhari rahe.
+
+                <br><br>
+
+                Jo dreams tum apne dil mein rakhti ho,
+                woh ek din reality ban jaayein.
+
+                <br><br>
+
+                And no matter how much life changes,
+                I hope you always remember...
+
+                <br><br>
+
+                <strong>
+                    You are genuinely special. ❤️
+                </strong>
+
+            </p>
+
+        </div>
 
     </div>
 
+</section>
+
+
+<!-- =======================================================
+     QUOTE
+======================================================= -->
+
+<section class="quote-section reveal">
 
     <div class="quote">
 
-      <p>
-        “Some people are not just part of your story...
-        they become your favorite chapter.”
-      </p>
+        “Some people become memories...
 
-      <span>
-        — FOR ZAHREEN ✦
-      </span>
+        <br>
+
+        but some people become
+        <em>favorite chapters.</em>”
 
     </div>
 
-  </div>
+    <div class="quote-author">
+        Written for Zahreen ✦
+    </div>
 
 </section>
 
 
-<!-- ================= SURPRISE ================= -->
+<!-- =======================================================
+     SURPRISE
+======================================================= -->
 
-<section class="surprise">
+<section class="surprise reveal">
 
-  <div class="gift">
-    🎁
-  </div>
+    <div class="gift-orbit">
 
-  <h2>
-    One More Thing...
-  </h2>
+        <span>🎁</span>
 
-  <p>
-    Because a normal birthday wish wasn't enough.
-  </p>
+    </div>
 
-  <button class="btn btn-primary"
-          onclick="celebrate()">
-    🎉 Make A Wish
-  </button>
+    <h2 class="surprise-title">
+        One Last Thing...
+    </h2>
+
+    <p class="surprise-text">
+
+        Because someone this special
+        deserves more than a simple wish.
+
+    </p>
+
+    <button
+        class="luxury-btn"
+        onclick="celebrate()">
+
+        Make A Wish ✦
+
+    </button>
 
 </section>
-
-
-</main>
 
 
 <footer>
-  Made with <strong>♡</strong> specially for <strong>Zahreen</strong>
+
+    Made with <span>♡</span>
+    for someone special
+
 </footer>
+
+</div>
 
 
 <script>
 
-/* ================= CELEBRATION ================= */
+/* =========================================================
+   SCROLL
+========================================================= */
 
-function celebrate(){
+function goMessage(){
 
-  // Scroll to message
-  document.getElementById("message")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-  // Confetti explosion
-  for(let i=0;i<180;i++){
-
-    const c=document.createElement("div");
-
-    c.className="confetti";
-
-    const colors=[
-      "#ffffff",
-      "#ffe29a",
-      "#00ffff",
-      "#ff70c8",
-      "#ffd166"
-    ];
-
-    c.style.background=
-      colors[Math.floor(Math.random()*colors.length)];
-
-    c.style.left="50vw";
-    c.style.top="50vh";
-
-    document.body.appendChild(c);
-
-    const x=(Math.random()-.5)*window.innerWidth*1.5;
-    const y=(Math.random()-.5)*window.innerHeight*1.3;
-
-    const rotate=Math.random()*1000-500;
-
-    c.animate(
-      [
-        {
-          transform:"translate(-50%,-50%) scale(1) rotate(0deg)",
-          opacity:1
-        },
-        {
-          transform:
-            `translate(${x}px,${y}px) scale(.2) rotate(${rotate}deg)`,
-          opacity:0
-        }
-      ],
-      {
-        duration:1800+Math.random()*1000,
-        easing:"cubic-bezier(.15,.8,.3,1)"
-      }
-    );
-
-    setTimeout(()=>{
-      c.remove();
-    },3000);
-  }
-
-  // Button feedback
-  const buttons=document.querySelectorAll(".btn-primary");
-
-  buttons.forEach(btn=>{
-    btn.style.transform="scale(.96)";
-
-    setTimeout(()=>{
-      btn.style.transform="";
-    },180);
-  });
+    document
+        .getElementById("message")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 }
 
 
-/* ================= CLICK GLOW ================= */
+/* =========================================================
+   FIRST SURPRISE
+========================================================= */
 
-document.addEventListener("click",(e)=>{
+function openSurprise(){
 
-  const glow=document.createElement("div");
+    createConfetti(120);
 
-  glow.style.position="fixed";
-  glow.style.left=e.clientX+"px";
-  glow.style.top=e.clientY+"px";
-  glow.style.width="20px";
-  glow.style.height="20px";
-  glow.style.borderRadius="50%";
-  glow.style.pointerEvents="none";
-  glow.style.zIndex="99";
+    setTimeout(()=>{
 
-  glow.style.background=
-    "rgba(255,220,130,.7)";
+        document
+            .getElementById("message")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
 
-  glow.style.boxShadow=
-    "0 0 30px 15px rgba(255,200,100,.25)";
+    },350);
+}
 
-  document.body.appendChild(glow);
 
-  glow.animate(
-    [
-      {
-        transform:"translate(-50%,-50%) scale(.2)",
-        opacity:1
-      },
-      {
-        transform:"translate(-50%,-50%) scale(5)",
-        opacity:0
-      }
-    ],
-    {
-      duration:600,
-      easing:"ease-out"
+/* =========================================================
+   FINAL CELEBRATION
+========================================================= */
+
+function celebrate(){
+
+    createConfetti(220);
+
+    // create temporary golden glow
+
+    const glow =
+        document.createElement("div");
+
+    glow.style.position="fixed";
+    glow.style.inset="0";
+    glow.style.pointerEvents="none";
+    glow.style.zIndex="90";
+
+    glow.style.background=
+        "radial-gradient(circle at center, rgba(230,190,100,.22), transparent 45%)";
+
+    glow.style.opacity="0";
+
+    document.body.appendChild(glow);
+
+    glow.animate(
+        [
+            {
+                opacity:0
+            },
+            {
+                opacity:1
+            },
+            {
+                opacity:0
+            }
+        ],
+        {
+            duration:1500,
+            easing:"ease-out"
+        }
+    );
+
+    setTimeout(()=>{
+        glow.remove();
+    },1500);
+
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function createConfetti(amount){
+
+    const colors=[
+        "#f6e3a5",
+        "#d3a94e",
+        "#ffffff",
+        "#f0c875",
+        "#e8d8b0"
+    ];
+
+    for(let i=0;i<amount;i++){
+
+        const c =
+            document.createElement("div");
+
+        c.className="confetti";
+
+        c.style.background =
+            colors[
+                Math.floor(
+                    Math.random()*colors.length
+                )
+            ];
+
+        c.style.left="50vw";
+        c.style.top="50vh";
+
+        c.style.width =
+            (3+Math.random()*5)+"px";
+
+        c.style.height =
+            (5+Math.random()*10)+"px";
+
+        document.body.appendChild(c);
+
+        const x =
+            (Math.random()-.5)
+            * window.innerWidth
+            * 1.7;
+
+        const y =
+            (Math.random()-.5)
+            * window.innerHeight
+            * 1.5;
+
+        const rotation =
+            Math.random()*1000-500;
+
+        c.animate(
+
+            [
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(1) rotate(0deg)",
+                    opacity:1
+                },
+
+                {
+                    transform:
+                        `translate(${x}px,${y}px)
+                         scale(.2)
+                         rotate(${rotation}deg)`,
+                    opacity:0
+                }
+            ],
+
+            {
+                duration:
+                    1800 +
+                    Math.random()*1400,
+
+                easing:
+                    "cubic-bezier(.15,.7,.25,1)"
+            }
+
+        );
+
+        setTimeout(()=>{
+            c.remove();
+        },3400);
+
     }
-  );
 
-  setTimeout(()=>{
-    glow.remove();
-  },600);
+}
 
-});
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const observer =
+    new IntersectionObserver(
+
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry
+                        .target
+                        .classList
+                        .add("visible");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+revealElements.forEach(
+    element =>
+        observer.observe(element)
+);
+
+
+/* =========================================================
+   VIDEO MOBILE AUTOPLAY FALLBACK
+========================================================= */
+
+const video =
+    document.querySelector(".bg-video");
+
+document.addEventListener(
+    "visibilitychange",
+    ()=>{
+
+        if(
+            !document.hidden &&
+            video.paused
+        ){
+
+            video.play()
+            .catch(()=>{});
+
+        }
+
+    }
+);
 
 </script>
 
 </body>
-</html>
+  </html>
