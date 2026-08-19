@@ -3,112 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Zahreen 👑</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+<title>Zahreen 2050 ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;500&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Poppins',sans-serif;color:#fff;overflow-x:hidden}
+  body{font-family:'Exo 2',sans-serif;color:#fff;overflow-x:hidden;background:#000}
 
-  /* Ultra Glassy Video Background */
+  /* Video BG 2050 Style */
   .bg-video{
-    position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;
-    filter:brightness(0.35) blur(3px) saturate(1.2);
+    position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-3;
+    filter:brightness(0.4) contrast(1.2);
   }
-  .overlay{
-    position:fixed;top:0;left:0;width:100%;height:100%;
-    background:linear-gradient(135deg, rgba(255,0,204,0.45), rgba(0,200,255,0.45));
-    backdrop-filter:blur(12px);z-index:-1;
+  .grid{
+    position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;
+    background-image: linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px; animation:gridMove 20s linear infinite;
   }
+  @keyframes gridMove{to{transform:translateY(50px)}}
 
-  /* Pro Max Glass Card */
-  .glass{
-    background:rgba(255,255,255,0.07);
-    backdrop-filter:blur(40px);
-    border:1px solid rgba(255,255,255,0.35);
-    border-radius:40px;
-    box-shadow:0 0 100px rgba(255,0,204,0.6);
+  /* Hologram Text */
+  .holo{
+    font-family:'Orbitron',sans-serif;
+    background: linear-gradient(90deg,#00ffff,#ff00ff,#00ffff);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    text-shadow:0 0 20px #00ffff, 0 0 40px #ff00ff;
+    animation:flicker 3s infinite;
+  }
+  @keyframes flicker{0%,100%{opacity:1} 50%{opacity:0.8}}
+
+  /* Glass 2050 Card */
+  .glass-2050{
+    background:rgba(0,255,255,0.05);
+    backdrop-filter:blur(40px) saturate(180%);
+    border:1px solid rgba(0,255,255,0.3);
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(0,255,255,0.3), inset 0 0 30px rgba(255,0,255,0.1);
   }
 
   .hero{
     height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;
   }
-  .hero h1{
-    font-family:'Great Vibes',cursive;font-size:6.5rem;
-    background:linear-gradient(90deg,#ff9a9e,#a18cd1,#fbc2eb,#ff9a9e);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-    animation:glow 2.5s ease-in-out infinite alternate;
-  }
-  @keyframes glow{from{text-shadow:0 0 40px #ff9a9e} to{text-shadow:0 0 120px #fbc2eb}}
+  .hero h1{font-size:4rem;font-weight:900;letter-spacing:3px}
+  .hero p{font-size:1.3rem;margin:20px 0;opacity:0.9}
 
-  .btn{
-    margin-top:35px;padding:22px 60px;border:none;border-radius:70px;
-    background:linear-gradient(90deg,#ff00cc,#00ccff,#ff00cc);
-    background-size:200%;
-    color:#fff;font-weight:800;font-size:1.4rem;cursor:pointer;
-    box-shadow:0 25px 70px rgba(255,0,204,0.8);transition:0.5s;
-    animation:gradient 3s linear infinite;
+  /* Premium Button */
+  .btn-2050{
+    margin-top:30px;padding:18px 50px;border:2px solid #00ffff;border-radius:10px;
+    background:transparent;color:#00ffff;font-family:'Orbitron';font-weight:700;font-size:1.1rem;
+    cursor:pointer;transition:0.3s;position:relative;overflow:hidden;
   }
-  @keyframes gradient{0%{background-position:0%} 100%{background-position:200%}}
-  .btn:hover{transform:scale(1.15) translateY(-8px)}
+  .btn-2050:hover{
+    background:#00ffff;color:#000;box-shadow:0 0 40px #00ffff;
+    transform:translateY(-3px);
+  }
 
-  /* 3D Cake */
-  .cake{width:260px;height:260px;margin:40px auto;position:relative;transform-style:preserve-3d;animation:spin 12s linear infinite}
-  @keyframes spin{to{transform:rotateY(360deg)}}
-  .layer{position:absolute;border-radius:30px;background:linear-gradient(180deg,#ff99dd,#ff33aa)}
-  .l1{width:100%;height:90px;bottom:0}
-  .l2{width:75%;height:70px;bottom:90px;left:12.5%}
-  .l3{width:55%;height:60px;bottom:160px;left:22.5%}
-  .flame{position:absolute;top:-30px;left:50%;width:22px;height:35px;background:radial-gradient(#ffff00,#ff6600);border-radius:50%;animation:flicker 0.2s infinite alternate}
-  @keyframes flicker{to{transform:scale(1.3)}}
+  .card{
+    padding:60px;margin:80px auto;max-width:900px;text-align:center;
+  }
+  .card h2{font-size:2.8rem;margin-bottom:20px}
+
+  /* Floating particles */
+  .dot{position:fixed;width:3px;height:3px;background:#00ffff;border-radius:50%;box-shadow:0 0 10px #00ffff;animation:float 15s infinite linear}
+  @keyframes float{to{transform:translateY(-100vh) rotate(360deg)}}
 </style>
 </head>
 <body>
 
-<!-- TUMHARI VIDEO -->
+<!-- 2050 VIDEO BACKGROUND -->
 <video class="bg-video" autoplay muted loop playsinline>
-  <source src="Zahreen-video.mp4" type="video/mp4"> 
+  <source src="Zahreen-video.mp4" type="video/mp4">
 </video>
-<div class="overlay"></div>
+<div class="grid"></div>
+
+<!-- Floating Dots -->
+<script>for(let i=0;i<40;i++){let d=document.createElement('div');d.className='dot';d.style.left=Math.random()*100+'vw';d.style.top=Math.random()*100+'vh';d.style.animationDelay=Math.random()*10+'s';document.body.appendChild(d)}</script>
 
 <section class="hero">
-  <h1>Happy Birthday Zahreen</h1>
-  <p style="font-size:1.6rem;margin:25px 0;opacity:0.95">To My Best Friend - You Are My Universe ✨</p>
-  
-  <div class="cake">
-    <div class="layer l1"></div>
-    <div class="layer l2"></div>
-    <div class="layer l3"></div>
-    <div class="flame"></div>
-  </div>
-
-  <button class="btn" onclick="fireworks()">Tap to Celebrate 🎉</button>
+  <h1 class="holo">HAPPY BIRTHDAY</h1>
+  <h1 class="holo" style="font-size:5rem">ZAHREEN</h1>
+  <p>To My Best Friend - You Are My Universe ✨</p>
+  <button class="btn-2050" onclick="neonBurst()">INITIATE CELEBRATION</button>
 </section>
 
-<section class="glass" style="padding:70px;margin:100px auto;max-width:1100px;text-align:center;">
-  <h2 style="font-size:3.2rem;margin-bottom:25px">For Zahreen 💖</h2>
-  <p style="font-size:1.4rem;line-height:2">
-    Zahreen, tum meri zindagi ki sab se khoobsurat cheez ho.  
-    Tumhari dosti ke bina sab adhoora hai.  
+<section class="card glass-2050">
+  <h2 class="holo">FOR ZAHREEN</h2>
+  <p style="font-size:1.3rem;line-height:2;opacity:0.95">
+    Zahreen, tum meri zindagi ki sab se khoobsurat cheez ho. <br>
+    Tumhari dosti ke bina sab adhoora hai. <br>
     Aaj ka din sirf tumhara hai - My Queen 👑
   </p>
 </section>
 
 <script>
-  function fireworks(){
-    for(let i=0;i<150;i++){
-      let f = document.createElement('div');
-      f.style.position='fixed';f.style.width='12px';f.style.height='12px';f.style.borderRadius='50%';
-      f.style.left = 50 + Math.random()*40 - 20 + 'vw';
-      f.style.top = 50 + 'vh';
-      f.style.background = `hsl(${Math.random()*360},100%,70%)`;
-      f.style.boxShadow = `0 0 50px ${f.style.background}`;
-      document.body.appendChild(f);
-      let x = (Math.random()-0.5)*700; let y = (Math.random()-0.5)*700;
-      f.animate([{transform:'translate(0,0)'},{transform:`translate(${x}px,${y}px)`,opacity:0}],{duration:2000});
-      setTimeout(()=>f.remove(),2000);
+  function neonBurst(){
+    for(let i=0;i<200;i++){
+      let p = document.createElement('div');
+      p.style.position='fixed';p.style.width='6px';p.style.height='6px';
+      p.style.background=`hsl(${Math.random()*360},100%,60%)`;
+      p.style.boxShadow=`0 0 20px ${p.style.background}`;
+      p.style.left='50vw';p.style.top='50vh';p.style.borderRadius='50%';
+      document.body.appendChild(p);
+      let x = (Math.random()-0.5)*1000; let y = (Math.random()-0.5)*1000;
+      p.animate([{transform:'translate(0,0) scale(1)'},{transform:`translate(${x}px,${y}px) scale(0)`,opacity:0}],{duration:2000});
+      setTimeout(()=>p.remove(),2000);
     }
   }
-  setInterval(fireworks,3000);
 </script>
 
 </body>
