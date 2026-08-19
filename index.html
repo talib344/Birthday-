@@ -4,128 +4,112 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Zahreen 👑</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{
-    font-family:'Poppins',sans-serif;
-    background: radial-gradient(circle at top,#1a0033,#000);
-    color:#fff;overflow-x:hidden;
-  }
+  body{font-family:'Poppins',sans-serif;color:#fff;overflow-x:hidden}
 
-  /* Animated Background */
-  .bg-blur{
+  /* Ultra Glassy Video Background */
+  .bg-video{
+    position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+    filter:brightness(0.35) blur(3px) saturate(1.2);
+  }
+  .overlay{
     position:fixed;top:0;left:0;width:100%;height:100%;
-    background: conic-gradient(from 180deg at 50% 50%, #ff00ff, #00ffff, #ff00ff);
-    filter:blur(120px);opacity:0.3;animation:rotate 20s linear infinite;z-index:-1;
+    background:linear-gradient(135deg, rgba(255,0,204,0.45), rgba(0,200,255,0.45));
+    backdrop-filter:blur(12px);z-index:-1;
   }
-  @keyframes rotate{to{transform:rotate(360deg)}}
 
-  /* Hero */
+  /* Pro Max Glass Card */
+  .glass{
+    background:rgba(255,255,255,0.07);
+    backdrop-filter:blur(40px);
+    border:1px solid rgba(255,255,255,0.35);
+    border-radius:40px;
+    box-shadow:0 0 100px rgba(255,0,204,0.6);
+  }
+
   .hero{
-    height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;
   }
   .hero h1{
-    font-family:'Great Vibes',cursive;font-size:5rem;
-    background:linear-gradient(90deg,#ff9a9e,#fecfef,#fecfef,#ff9a9e);
+    font-family:'Great Vibes',cursive;font-size:6.5rem;
+    background:linear-gradient(90deg,#ff9a9e,#a18cd1,#fbc2eb,#ff9a9e);
     -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-    animation:glow 2s ease-in-out infinite alternate;
+    animation:glow 2.5s ease-in-out infinite alternate;
   }
-  @keyframes glow{from{text-shadow:0 0 20px #ff9a9e} to{text-shadow:0 0 60px #fecfef}}
-  .hero p{font-size:1.3rem;margin:20px 0;opacity:0.9}
+  @keyframes glow{from{text-shadow:0 0 40px #ff9a9e} to{text-shadow:0 0 120px #fbc2eb}}
+
+  .btn{
+    margin-top:35px;padding:22px 60px;border:none;border-radius:70px;
+    background:linear-gradient(90deg,#ff00cc,#00ccff,#ff00cc);
+    background-size:200%;
+    color:#fff;font-weight:800;font-size:1.4rem;cursor:pointer;
+    box-shadow:0 25px 70px rgba(255,0,204,0.8);transition:0.5s;
+    animation:gradient 3s linear infinite;
+  }
+  @keyframes gradient{0%{background-position:0%} 100%{background-position:200%}}
+  .btn:hover{transform:scale(1.15) translateY(-8px)}
 
   /* 3D Cake */
-  .cake{
-    position:relative;width:220px;height:220px;margin:40px auto;transform-style:preserve-3d;
-    animation:spin 8s linear infinite;
-  }
+  .cake{width:260px;height:260px;margin:40px auto;position:relative;transform-style:preserve-3d;animation:spin 12s linear infinite}
   @keyframes spin{to{transform:rotateY(360deg)}}
-  .layer{
-    position:absolute;width:100%;border-radius:20px;
-    background:linear-gradient(180deg,#ffb6c1,#ff69b4);
-    box-shadow:inset 0 -10px 20px rgba(0,0,0,0.2);
-  }
-  .layer1{height:70px;bottom:0}
-  .layer2{height:60px;bottom:70px;width:80%;left:10%}
-  .layer3{height:50px;bottom:130px;width:60%;left:20%}
-  .candle{
-    position:absolute;top:-30px;left:50%;transform:translateX(-50%);
-    width:12px;height:30px;background:#fff;border-radius:6px;
-  }
-  .flame{
-    position:absolute;top:-20px;left:50%;transform:translateX(-50%);
-    width:18px;height:25px;background:radial-gradient(#ffeb3b,#ff9800);
-    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-    animation:flicker 0.3s infinite alternate;
-  }
-  @keyframes flicker{to{transform:translateX(-50%) scale(1.1)}}
-
-  /* Glass Card */
-  .card{
-    background:rgba(255,255,255,0.06);backdrop-filter:blur(25px);
-    border:1px solid rgba(255,255,255,0.2);border-radius:30px;
-    padding:50px;margin:80px auto;max-width:900px;text-align:center;
-    box-shadow:0 0 50px rgba(255,0,255,0.3);
-  }
-  .btn{
-    padding:16px 40px;border:none;border-radius:50px;
-    background:linear-gradient(90deg,#ff00cc,#3333ff);
-    color:#fff;font-weight:700;font-size:1.1rem;cursor:pointer;
-    box-shadow:0 10px 40px rgba(255,0,204,0.5);transition:0.3s;
-  }
-  .btn:hover{transform:scale(1.08)}
-
-  /* Fireworks */
-  .firework{position:fixed;width:6px;height:6px;border-radius:50%;pointer-events:none}
+  .layer{position:absolute;border-radius:30px;background:linear-gradient(180deg,#ff99dd,#ff33aa)}
+  .l1{width:100%;height:90px;bottom:0}
+  .l2{width:75%;height:70px;bottom:90px;left:12.5%}
+  .l3{width:55%;height:60px;bottom:160px;left:22.5%}
+  .flame{position:absolute;top:-30px;left:50%;width:22px;height:35px;background:radial-gradient(#ffff00,#ff6600);border-radius:50%;animation:flicker 0.2s infinite alternate}
+  @keyframes flicker{to{transform:scale(1.3)}}
 </style>
 </head>
 <body>
-<div class="bg-blur"></div>
+
+<!-- TUMHARI VIDEO -->
+<video class="bg-video" autoplay muted loop playsinline>
+  <source src="Zahreen-video.mp4" type="video/mp4"> 
+</video>
+<div class="overlay"></div>
 
 <section class="hero">
   <h1>Happy Birthday Zahreen</h1>
-  <p>To My Best Friend - You Deserve The Universe ✨</p>
+  <p style="font-size:1.6rem;margin:25px 0;opacity:0.95">To My Best Friend - You Are My Universe ✨</p>
   
   <div class="cake">
-    <div class="layer layer1"></div>
-    <div class="layer layer2"></div>
-    <div class="layer layer3"></div>
-    <div class="candle"><div class="flame"></div></div>
+    <div class="layer l1"></div>
+    <div class="layer l2"></div>
+    <div class="layer l3"></div>
+    <div class="flame"></div>
   </div>
 
   <button class="btn" onclick="fireworks()">Tap to Celebrate 🎉</button>
 </section>
 
-<section class="card">
-  <h2 style="font-size:2.5rem;margin-bottom:20px">For Zahreen 💖</h2>
-  <p style="font-size:1.2rem;line-height:1.8">
-    Zahreen, tumhari dosti mere liye sab se bari gift hai.  
-    Tum jahan bhi raho, hamesha chamakti raho.  
-    Aaj ka din sirf tumhara hai - Queen 👑
+<section class="glass" style="padding:70px;margin:100px auto;max-width:1100px;text-align:center;">
+  <h2 style="font-size:3.2rem;margin-bottom:25px">For Zahreen 💖</h2>
+  <p style="font-size:1.4rem;line-height:2">
+    Zahreen, tum meri zindagi ki sab se khoobsurat cheez ho.  
+    Tumhari dosti ke bina sab adhoora hai.  
+    Aaj ka din sirf tumhara hai - My Queen 👑
   </p>
 </section>
 
 <script>
-  // Fireworks
   function fireworks(){
-    for(let i=0;i<80;i++){
+    for(let i=0;i<150;i++){
       let f = document.createElement('div');
-      f.className='firework';
+      f.style.position='fixed';f.style.width='12px';f.style.height='12px';f.style.borderRadius='50%';
       f.style.left = 50 + Math.random()*40 - 20 + 'vw';
-      f.style.top = 50 + Math.random()*20 + 'vh';
+      f.style.top = 50 + 'vh';
       f.style.background = `hsl(${Math.random()*360},100%,70%)`;
-      f.style.boxShadow = `0 0 20px ${f.style.background}`;
+      f.style.boxShadow = `0 0 50px ${f.style.background}`;
       document.body.appendChild(f);
-      let x = (Math.random()-0.5)*400;
-      let y = (Math.random()-0.5)*400;
-      f.animate([{transform:`translate(0,0)`},{transform:`translate(${x}px,${y}px)`,opacity:0}],{duration:1200});
-      setTimeout(()=>f.remove(),1200);
+      let x = (Math.random()-0.5)*700; let y = (Math.random()-0.5)*700;
+      f.animate([{transform:'translate(0,0)'},{transform:`translate(${x}px,${y}px)`,opacity:0}],{duration:2000});
+      setTimeout(()=>f.remove(),2000);
     }
   }
-  
-  // Auto fireworks every 5 sec
-  setInterval(fireworks,5000);
+  setInterval(fireworks,3000);
 </script>
 
 </body>
-    </html>
+</html>
