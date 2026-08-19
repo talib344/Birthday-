@@ -2,113 +2,882 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zahreen 2050 ✨</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Happy Birthday Zahreen ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Exo 2',sans-serif;color:#fff;overflow-x:hidden;background:#000}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-  /* Video BG 2050 Style */
-  .bg-video{
-    position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-3;
-    filter:brightness(0.4) contrast(1.2);
-  }
-  .grid{
-    position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;
-    background-image: linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
-    background-size: 50px 50px; animation:gridMove 20s linear infinite;
-  }
-  @keyframes gridMove{to{transform:translateY(50px)}}
+html{
+  scroll-behavior:smooth;
+}
 
-  /* Hologram Text */
-  .holo{
-    font-family:'Orbitron',sans-serif;
-    background: linear-gradient(90deg,#00ffff,#ff00ff,#00ffff);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-    text-shadow:0 0 20px #00ffff, 0 0 40px #ff00ff;
-    animation:flicker 3s infinite;
-  }
-  @keyframes flicker{0%,100%{opacity:1} 50%{opacity:0.8}}
+body{
+  background:#020204;
+  color:#fff;
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
 
-  /* Glass 2050 Card */
-  .glass-2050{
-    background:rgba(0,255,255,0.05);
-    backdrop-filter:blur(40px) saturate(180%);
-    border:1px solid rgba(0,255,255,0.3);
-    border-radius:20px;
-    box-shadow:0 0 30px rgba(0,255,255,0.3), inset 0 0 30px rgba(255,0,255,0.1);
+/* ================= VIDEO BACKGROUND ================= */
+
+.bg-video{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-10;
+  filter:brightness(.32) contrast(1.15) saturate(1.2);
+}
+
+.video-overlay{
+  position:fixed;
+  inset:0;
+  z-index:-9;
+  background:
+    radial-gradient(circle at 50% 20%,rgba(255,190,90,.14),transparent 35%),
+    radial-gradient(circle at 10% 80%,rgba(0,255,255,.12),transparent 35%),
+    radial-gradient(circle at 90% 70%,rgba(255,0,170,.12),transparent 35%),
+    linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.8));
+}
+
+/* ================= AURORA ================= */
+
+.aurora{
+  position:fixed;
+  width:600px;
+  height:600px;
+  border-radius:50%;
+  filter:blur(100px);
+  opacity:.18;
+  pointer-events:none;
+  z-index:-8;
+  animation:auroraMove 12s ease-in-out infinite alternate;
+}
+
+.aurora.one{
+  background:#00ffff;
+  top:-300px;
+  left:-250px;
+}
+
+.aurora.two{
+  background:#ff00cc;
+  right:-300px;
+  bottom:-300px;
+  animation-delay:2s;
+}
+
+@keyframes auroraMove{
+  from{
+    transform:translate(0,0) scale(1);
   }
+  to{
+    transform:translate(80px,60px) scale(1.2);
+  }
+}
+
+/* ================= GRID ================= */
+
+.grid{
+  position:fixed;
+  inset:0;
+  z-index:-7;
+  opacity:.18;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:55px 55px;
+  mask-image:linear-gradient(to bottom,black,transparent);
+}
+
+/* ================= PARTICLES ================= */
+
+.particle{
+  position:fixed;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:
+    0 0 8px #fff,
+    0 0 18px rgba(0,255,255,.8);
+  pointer-events:none;
+  z-index:-3;
+  animation:particleFloat linear infinite;
+}
+
+@keyframes particleFloat{
+  0%{
+    transform:translateY(110vh) scale(.4);
+    opacity:0;
+  }
+
+  15%{
+    opacity:1;
+  }
+
+  85%{
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-20vh) scale(1.2);
+    opacity:0;
+  }
+}
+
+/* ================= MAIN ================= */
+
+main{
+  width:100%;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px 20px;
+  position:relative;
+}
+
+.top-badge{
+  padding:9px 17px;
+  border:1px solid rgba(255,215,130,.45);
+  border-radius:100px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(15px);
+  color:#ffe6a4;
+  font-size:.72rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  box-shadow:
+    0 0 25px rgba(255,200,100,.12),
+    inset 0 0 15px rgba(255,255,255,.04);
+  margin-bottom:24px;
+  animation:badgeGlow 3s ease-in-out infinite;
+}
+
+@keyframes badgeGlow{
+  50%{
+    box-shadow:
+      0 0 40px rgba(255,200,100,.25),
+      inset 0 0 15px rgba(255,255,255,.06);
+  }
+}
+
+/* ================= TITLE ================= */
+
+.small-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,7vw,3.5rem);
+  font-weight:600;
+  letter-spacing:2px;
+  color:#fff;
+}
+
+.main-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(4rem,18vw,9rem);
+  line-height:.9;
+  margin:8px 0 18px;
+
+  background:linear-gradient(
+    120deg,
+    #fff,
+    #ffe4a3 25%,
+    #fff 45%,
+    #e6b85c 70%,
+    #fff
+  );
+
+  background-size:250% auto;
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+
+  animation:
+    shine 5s linear infinite,
+    titleFloat 4s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 20px rgba(255,210,120,.22));
+}
+
+@keyframes shine{
+  to{
+    background-position:250% center;
+  }
+}
+
+@keyframes titleFloat{
+  50%{
+    transform:translateY(-5px);
+  }
+}
+
+.subtitle{
+  max-width:600px;
+  color:rgba(255,255,255,.78);
+  font-size:clamp(.95rem,3vw,1.25rem);
+  line-height:1.7;
+}
+
+/* ================= BUTTON ================= */
+
+.actions{
+  display:flex;
+  gap:12px;
+  margin-top:32px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.btn{
+  border:none;
+  cursor:pointer;
+  padding:15px 25px;
+  border-radius:14px;
+  font-family:'DM Sans',sans-serif;
+  font-size:.9rem;
+  font-weight:700;
+  letter-spacing:.4px;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn-primary{
+  color:#090909;
+  background:linear-gradient(
+    135deg,
+    #fff1bd,
+    #dba94f,
+    #fff1bd
+  );
+  box-shadow:
+    0 10px 35px rgba(230,180,70,.22);
+}
+
+.btn-primary:hover{
+  transform:translateY(-4px) scale(1.02);
+  box-shadow:
+    0 15px 50px rgba(230,180,70,.4);
+}
+
+.btn-secondary{
+  color:#fff;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(15px);
+}
+
+.btn-secondary:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.12);
+}
+
+/* ================= SCROLL ================= */
+
+.scroll{
+  position:absolute;
+  bottom:25px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  color:rgba(255,255,255,.45);
+  font-size:.65rem;
+  letter-spacing:2px;
+}
+
+.scroll-line{
+  width:1px;
+  height:35px;
+  background:linear-gradient(#fff,transparent);
+  animation:scrollAnim 1.7s infinite;
+}
+
+@keyframes scrollAnim{
+  50%{
+    transform:translateY(10px);
+    opacity:.3;
+  }
+}
+
+/* ================= MESSAGE SECTION ================= */
+
+.section{
+  padding:100px 20px;
+  position:relative;
+}
+
+.container{
+  width:min(900px,100%);
+  margin:auto;
+}
+
+.glass{
+  border:1px solid rgba(255,255,255,.12);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.09),
+      rgba(255,255,255,.025)
+    );
+  backdrop-filter:blur(35px);
+  -webkit-backdrop-filter:blur(35px);
+  border-radius:30px;
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+.message-card{
+  padding:clamp(28px,7vw,70px);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.message-card::before{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:#ffb7dc;
+  filter:blur(100px);
+  opacity:.08;
+  top:-100px;
+  left:-80px;
+}
+
+.message-card::after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:#00ffff;
+  filter:blur(100px);
+  opacity:.07;
+  bottom:-120px;
+  right:-80px;
+}
+
+.section-label{
+  color:#e6bd67;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:15px;
+}
+
+.message-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,8vw,4rem);
+  margin-bottom:25px;
+}
+
+.message{
+  color:rgba(255,255,255,.82);
+  font-size:clamp(1rem,3.5vw,1.2rem);
+  line-height:2;
+}
+
+/* ================= QUOTE ================= */
+
+.quote{
+  margin-top:20px;
+  padding:30px 20px;
+  text-align:center;
+}
+
+.quote p{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.5rem,5vw,2.5rem);
+  line-height:1.4;
+  color:#fff;
+}
+
+.quote span{
+  display:block;
+  margin-top:15px;
+  color:#dcb76b;
+  font-size:.75rem;
+  letter-spacing:2px;
+}
+
+/* ================= SURPRISE ================= */
+
+.surprise{
+  text-align:center;
+  padding:100px 20px 130px;
+}
+
+.gift{
+  width:90px;
+  height:90px;
+  margin:0 auto 25px;
+  border-radius:25px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:40px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.13),
+      rgba(255,255,255,.03)
+    );
+
+  border:1px solid rgba(255,255,255,.18);
+
+  box-shadow:
+    0 0 50px rgba(255,180,80,.14),
+    inset 0 0 25px rgba(255,255,255,.05);
+
+  animation:giftFloat 3s ease-in-out infinite;
+}
+
+@keyframes giftFloat{
+  50%{
+    transform:translateY(-10px) rotate(2deg);
+  }
+}
+
+.surprise h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,8vw,4rem);
+  margin-bottom:15px;
+}
+
+.surprise p{
+  color:rgba(255,255,255,.65);
+  margin-bottom:28px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  text-align:center;
+  padding:25px 20px 35px;
+  color:rgba(255,255,255,.35);
+  font-size:.75rem;
+}
+
+footer strong{
+  color:#dfba6a;
+}
+
+/* ================= CONFETTI ================= */
+
+.confetti{
+  position:fixed;
+  width:7px;
+  height:12px;
+  z-index:100;
+  pointer-events:none;
+  border-radius:2px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
 
   .hero{
-    height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;
-  }
-  .hero h1{font-size:4rem;font-weight:900;letter-spacing:3px}
-  .hero p{font-size:1.3rem;margin:20px 0;opacity:0.9}
-
-  /* Premium Button */
-  .btn-2050{
-    margin-top:30px;padding:18px 50px;border:2px solid #00ffff;border-radius:10px;
-    background:transparent;color:#00ffff;font-family:'Orbitron';font-weight:700;font-size:1.1rem;
-    cursor:pointer;transition:0.3s;position:relative;overflow:hidden;
-  }
-  .btn-2050:hover{
-    background:#00ffff;color:#000;box-shadow:0 0 40px #00ffff;
-    transform:translateY(-3px);
+    padding:25px 18px;
   }
 
-  .card{
-    padding:60px;margin:80px auto;max-width:900px;text-align:center;
+  .top-badge{
+    font-size:.62rem;
+    padding:8px 14px;
   }
-  .card h2{font-size:2.8rem;margin-bottom:20px}
 
-  /* Floating particles */
-  .dot{position:fixed;width:3px;height:3px;background:#00ffff;border-radius:50%;box-shadow:0 0 10px #00ffff;animation:float 15s infinite linear}
-  @keyframes float{to{transform:translateY(-100vh) rotate(360deg)}}
+  .main-title{
+    font-size:19vw;
+    letter-spacing:-1px;
+  }
+
+  .small-title{
+    font-size:8vw;
+  }
+
+  .subtitle{
+    font-size:.9rem;
+    max-width:330px;
+  }
+
+  .actions{
+    width:100%;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .btn{
+    width:min(300px,100%);
+    padding:15px 20px;
+  }
+
+  .section{
+    padding:70px 15px;
+  }
+
+  .message-card{
+    border-radius:24px;
+    padding:38px 22px;
+  }
+
+  .message{
+    font-size:.95rem;
+    line-height:1.9;
+  }
+
+  .quote{
+    padding:30px 10px;
+  }
+
+  .quote p{
+    font-size:1.45rem;
+  }
+
+  .surprise{
+    padding:80px 20px 100px;
+  }
+
+  .grid{
+    background-size:35px 35px;
+  }
+
+  .aurora{
+    width:400px;
+    height:400px;
+  }
+}
+
+/* Reduce animations for accessibility */
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+  }
+}
 </style>
 </head>
+
 <body>
 
-<!-- 2050 VIDEO BACKGROUND -->
+<!-- EXISTING VIDEO — DO NOT REMOVE -->
 <video class="bg-video" autoplay muted loop playsinline>
   <source src="Zahreen-video.mp4" type="video/mp4">
 </video>
+
+<div class="video-overlay"></div>
 <div class="grid"></div>
 
-<!-- Floating Dots -->
-<script>for(let i=0;i<40;i++){let d=document.createElement('div');d.className='dot';d.style.left=Math.random()*100+'vw';d.style.top=Math.random()*100+'vh';d.style.animationDelay=Math.random()*10+'s';document.body.appendChild(d)}</script>
+<div class="aurora one"></div>
+<div class="aurora two"></div>
+
+<!-- PARTICLES -->
+<script>
+for(let i=0;i<55;i++){
+
+  const p=document.createElement("div");
+
+  p.className="particle";
+
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(8+Math.random()*15)+"s";
+  p.style.animationDelay=(-Math.random()*20)+"s";
+  p.style.opacity=Math.random();
+
+  document.body.appendChild(p);
+}
+</script>
+
+
+<main>
+
+<!-- ================= HERO ================= -->
 
 <section class="hero">
-  <h1 class="holo">HAPPY BIRTHDAY</h1>
-  <h1 class="holo" style="font-size:5rem">ZAHREEN</h1>
-  <p>To My Best Friend - You Are My Universe ✨</p>
-  <button class="btn-2050" onclick="neonBurst()">INITIATE CELEBRATION</button>
+
+  <div class="top-badge">
+    ✦ A Special Day For Someone Special ✦
+  </div>
+
+  <div class="small-title">
+    Happy Birthday
+  </div>
+
+  <h1 class="main-title">
+    ZAHREEN
+  </h1>
+
+  <p class="subtitle">
+    Some people enter your life and quietly become
+    a beautiful part of your universe. ✨
+  </p>
+
+  <div class="actions">
+
+    <button class="btn btn-primary" onclick="celebrate()">
+      ✨ Open Your Surprise
+    </button>
+
+    <button class="btn btn-secondary"
+            onclick="document.getElementById('message').scrollIntoView()">
+      💌 Read My Message
+    </button>
+
+  </div>
+
+  <div class="scroll">
+    <span>SCROLL TO EXPLORE</span>
+    <div class="scroll-line"></div>
+  </div>
+
 </section>
 
-<section class="card glass-2050">
-  <h2 class="holo">FOR ZAHREEN</h2>
-  <p style="font-size:1.3rem;line-height:2;opacity:0.95">
-    Zahreen, tum meri zindagi ki sab se khoobsurat cheez ho. <br>
-    Tumhari dosti ke bina sab adhoora hai. <br>
-    Aaj ka din sirf tumhara hai - My Queen 👑
-  </p>
+
+<!-- ================= MESSAGE ================= -->
+
+<section class="section" id="message">
+
+  <div class="container">
+
+    <div class="glass message-card">
+
+      <div class="section-label">
+        A Little Message
+      </div>
+
+      <h2 class="message-title">
+        For Zahreen ❤️
+      </h2>
+
+      <p class="message">
+
+        Zahreen, tum meri zindagi ki un khoobsurat
+        cheezon mein se ho jinke liye words kabhi
+        enough nahi hote. ✨
+
+        <br><br>
+
+        Tumhari dosti mere liye sirf ek friendship nahi,
+        balki ek beautiful feeling hai.
+
+        <br><br>
+
+        Aaj tumhara special day hai,
+        aur meri dil se dua hai ke tumhari life
+        hamesha happiness, success aur beautiful
+        memories se bhari rahe. 🌙
+
+        <br><br>
+
+        Stay exactly the way you are...
+        because that's what makes you special. ❤️
+
+      </p>
+
+    </div>
+
+
+    <div class="quote">
+
+      <p>
+        “Some people are not just part of your story...
+        they become your favorite chapter.”
+      </p>
+
+      <span>
+        — FOR ZAHREEN ✦
+      </span>
+
+    </div>
+
+  </div>
+
 </section>
+
+
+<!-- ================= SURPRISE ================= -->
+
+<section class="surprise">
+
+  <div class="gift">
+    🎁
+  </div>
+
+  <h2>
+    One More Thing...
+  </h2>
+
+  <p>
+    Because a normal birthday wish wasn't enough.
+  </p>
+
+  <button class="btn btn-primary"
+          onclick="celebrate()">
+    🎉 Make A Wish
+  </button>
+
+</section>
+
+
+</main>
+
+
+<footer>
+  Made with <strong>♡</strong> specially for <strong>Zahreen</strong>
+</footer>
+
 
 <script>
-  function neonBurst(){
-    for(let i=0;i<200;i++){
-      let p = document.createElement('div');
-      p.style.position='fixed';p.style.width='6px';p.style.height='6px';
-      p.style.background=`hsl(${Math.random()*360},100%,60%)`;
-      p.style.boxShadow=`0 0 20px ${p.style.background}`;
-      p.style.left='50vw';p.style.top='50vh';p.style.borderRadius='50%';
-      document.body.appendChild(p);
-      let x = (Math.random()-0.5)*1000; let y = (Math.random()-0.5)*1000;
-      p.animate([{transform:'translate(0,0) scale(1)'},{transform:`translate(${x}px,${y}px) scale(0)`,opacity:0}],{duration:2000});
-      setTimeout(()=>p.remove(),2000);
-    }
+
+/* ================= CELEBRATION ================= */
+
+function celebrate(){
+
+  // Scroll to message
+  document.getElementById("message")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+  // Confetti explosion
+  for(let i=0;i<180;i++){
+
+    const c=document.createElement("div");
+
+    c.className="confetti";
+
+    const colors=[
+      "#ffffff",
+      "#ffe29a",
+      "#00ffff",
+      "#ff70c8",
+      "#ffd166"
+    ];
+
+    c.style.background=
+      colors[Math.floor(Math.random()*colors.length)];
+
+    c.style.left="50vw";
+    c.style.top="50vh";
+
+    document.body.appendChild(c);
+
+    const x=(Math.random()-.5)*window.innerWidth*1.5;
+    const y=(Math.random()-.5)*window.innerHeight*1.3;
+
+    const rotate=Math.random()*1000-500;
+
+    c.animate(
+      [
+        {
+          transform:"translate(-50%,-50%) scale(1) rotate(0deg)",
+          opacity:1
+        },
+        {
+          transform:
+            `translate(${x}px,${y}px) scale(.2) rotate(${rotate}deg)`,
+          opacity:0
+        }
+      ],
+      {
+        duration:1800+Math.random()*1000,
+        easing:"cubic-bezier(.15,.8,.3,1)"
+      }
+    );
+
+    setTimeout(()=>{
+      c.remove();
+    },3000);
   }
+
+  // Button feedback
+  const buttons=document.querySelectorAll(".btn-primary");
+
+  buttons.forEach(btn=>{
+    btn.style.transform="scale(.96)";
+
+    setTimeout(()=>{
+      btn.style.transform="";
+    },180);
+  });
+}
+
+
+/* ================= CLICK GLOW ================= */
+
+document.addEventListener("click",(e)=>{
+
+  const glow=document.createElement("div");
+
+  glow.style.position="fixed";
+  glow.style.left=e.clientX+"px";
+  glow.style.top=e.clientY+"px";
+  glow.style.width="20px";
+  glow.style.height="20px";
+  glow.style.borderRadius="50%";
+  glow.style.pointerEvents="none";
+  glow.style.zIndex="99";
+
+  glow.style.background=
+    "rgba(255,220,130,.7)";
+
+  glow.style.boxShadow=
+    "0 0 30px 15px rgba(255,200,100,.25)";
+
+  document.body.appendChild(glow);
+
+  glow.animate(
+    [
+      {
+        transform:"translate(-50%,-50%) scale(.2)",
+        opacity:1
+      },
+      {
+        transform:"translate(-50%,-50%) scale(5)",
+        opacity:0
+      }
+    ],
+    {
+      duration:600,
+      easing:"ease-out"
+    }
+  );
+
+  setTimeout(()=>{
+    glow.remove();
+  },600);
+
+});
+
 </script>
 
 </body>
