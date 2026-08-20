@@ -150,11 +150,25 @@ button:focus{
 }
 
 @keyframes grain{
-    0%{transform:translate(0,0)}
-    25%{transform:translate(2%,-1%)}
-    50%{transform:translate(-1%,2%)}
-    75%{transform:translate(1%,1%)}
-    100%{transform:translate(-2%,-1%)}
+    0%{
+        transform:translate(0,0)
+    }
+
+    25%{
+        transform:translate(2%,-1%)
+    }
+
+    50%{
+        transform:translate(-1%,2%)
+    }
+
+    75%{
+        transform:translate(1%,1%)
+    }
+
+    100%{
+        transform:translate(-2%,-1%)
+    }
 }
 
 /* =========================================================
@@ -442,6 +456,22 @@ main{
     50%{
         transform:scaleY(.4);
         transform-origin:top;
+    }
+}
+
+/* =========================================================
+   FADE UP
+========================================================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
@@ -897,6 +927,7 @@ main{
     border:1px solid rgba(255,255,255,.11);
     background:rgba(255,255,255,.035);
     backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
     text-align:center;
 }
 
@@ -905,6 +936,7 @@ main{
     height:130px;
     border-radius:50%;
     margin:0 auto 25px;
+
     background:
         repeating-radial-gradient(
             circle,
@@ -913,10 +945,13 @@ main{
             #1a1a1a 5px,
             #080808 7px
         );
+
     border:1px solid #333;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     box-shadow:
         0 15px 45px rgba(0,0,0,.6);
 }
@@ -960,6 +995,12 @@ main{
     font-size:9px;
     letter-spacing:2px;
     text-transform:uppercase;
+    transition:.3s;
+}
+
+.music-button:hover{
+    background:rgba(216,181,99,.15);
+    transform:translateY(-2px);
 }
 
 /* =========================================================
@@ -1249,6 +1290,7 @@ for(let i=0;i<45;i++){
     </p>
 
     <button
+        type="button"
         class="enter-btn"
         onclick="enterExperience()">
 
@@ -1394,7 +1436,7 @@ for(let i=0;i<45;i++){
                     playsinline>
 
                     <source
-                        src="Zahreen-video.mp4"
+                        src="./Zahreen-video.mp4"
                         type="video/mp4">
 
                 </video>
@@ -1515,28 +1557,28 @@ for(let i=0;i<45;i++){
 
         <div class="photo">
             <img
-                src="photo1.jpg"
+                src="./photo1.jpg"
                 alt="Memory 1"
                 onerror="this.style.display='none'">
         </div>
 
         <div class="photo">
             <img
-                src="photo2.jpg"
+                src="./photo2.jpg"
                 alt="Memory 2"
                 onerror="this.style.display='none'">
         </div>
 
         <div class="photo">
             <img
-                src="photo3.jpg"
+                src="./photo3.jpg"
                 alt="Memory 3"
                 onerror="this.style.display='none'">
         </div>
 
         <div class="photo">
             <img
-                src="photo4.jpg"
+                src="./photo4.jpg"
                 alt="Memory 4"
                 onerror="this.style.display='none'">
         </div>
@@ -1575,18 +1617,32 @@ for(let i=0;i<45;i++){
     </p>
 
     <button
+        type="button"
         class="music-button"
-        onclick="toggleMusic()"
-        id="musicButton">
+        id="musicButton"
+        onclick="toggleMusic()">
 
         ▶ Play Birthday Music
 
     </button>
 
+    <!-- =====================================================
+         AUDIO FILE
+         MUST BE: birthday-song.mp3
+         SAME FOLDER AS index.html
+    ====================================================== -->
+
     <audio
         id="music"
-        src="birthday-song.mp3"
+        preload="auto"
         loop>
+
+        <source
+            src="./birthday-song.mp3"
+            type="audio/mpeg">
+
+        Your browser does not support audio.
+
     </audio>
 
 </div>
@@ -1675,9 +1731,12 @@ for(let i=0;i<45;i++){
 <div class="modal-box">
 
     <button
+        type="button"
         class="close"
         onclick="closeModal('letterModal')">
+
         ×
+
     </button>
 
     <div class="letter">
@@ -1752,9 +1811,12 @@ for(let i=0;i<45;i++){
 <div class="modal-box">
 
     <button
+        type="button"
         class="close"
         onclick="closeModal('reasonModal')">
+
         ×
+
     </button>
 
     <div class="letter">
@@ -1772,6 +1834,7 @@ for(let i=0;i<45;i++){
             <strong>01 — Your Smile</strong>
 
             <br>
+
             Because some smiles make
             everything feel a little better.
 
@@ -1780,6 +1843,7 @@ for(let i=0;i<45;i++){
             <strong>02 — Your Heart</strong>
 
             <br>
+
             Genuine kindness is rare.
             That's what makes it beautiful.
 
@@ -1788,6 +1852,7 @@ for(let i=0;i<45;i++){
             <strong>03 — Your Presence</strong>
 
             <br>
+
             Some people don't need to say much
             to make a moment special.
 
@@ -1796,6 +1861,7 @@ for(let i=0;i<45;i++){
             <strong>04 — The Memories</strong>
 
             <br>
+
             The little moments often become
             the ones we remember the longest.
 
@@ -1804,6 +1870,7 @@ for(let i=0;i<45;i++){
             <strong>05 — Simply You</strong>
 
             <br>
+
             No complicated reason.
             You're just special.
 
@@ -1828,9 +1895,12 @@ for(let i=0;i<45;i++){
 <div class="modal-box">
 
     <button
+        type="button"
         class="close"
         onclick="closeVideo()">
+
         ×
+
     </button>
 
     <div class="video-modal-content">
@@ -1842,7 +1912,7 @@ for(let i=0;i<45;i++){
             playsinline>
 
             <source
-                src="Zahreen-video.mp4"
+                src="./Zahreen-video.mp4"
                 type="video/mp4">
 
         </video>
@@ -1876,10 +1946,12 @@ window.addEventListener("load",()=>{
 
     setTimeout(()=>{
 
-        document
-            .getElementById("loader")
-            .classList
-            .add("hide");
+        const loader =
+            document.getElementById("loader");
+
+        if(loader){
+            loader.classList.add("hide");
+        }
 
         document.body.classList.remove("lock");
 
@@ -1909,10 +1981,12 @@ function enterExperience(){
 
 function openModal(id){
 
-    document
-        .getElementById(id)
-        .classList
-        .add("open");
+    const modal =
+        document.getElementById(id);
+
+    if(!modal) return;
+
+    modal.classList.add("open");
 
     document.body.classList.add("lock");
 
@@ -1920,10 +1994,12 @@ function openModal(id){
 
 function closeModal(id){
 
-    document
-        .getElementById(id)
-        .classList
-        .remove("open");
+    const modal =
+        document.getElementById(id);
+
+    if(!modal) return;
+
+    modal.classList.remove("open");
 
     document.body.classList.remove("lock");
 
@@ -1931,7 +2007,7 @@ function closeModal(id){
 
 function outsideClose(e,id){
 
-    if(e.target.id===id){
+    if(e.target.id === id){
 
         closeModal(id);
 
@@ -1944,7 +2020,7 @@ function outsideClose(e,id){
    GIFTS
 ========================================================= */
 
-let giftsOpened=new Set();
+let giftsOpened = new Set();
 
 function markGift(number){
 
@@ -1960,16 +2036,28 @@ function markGift(number){
 
 function updateProgress(){
 
-    const count=giftsOpened.size;
+    const count =
+        giftsOpened.size;
 
-    document
-        .getElementById("progressNumber")
-        .textContent=count;
+    const progressNumber =
+        document.getElementById("progressNumber");
 
-    document
-        .getElementById("progressFill")
-        .style.width=
-            (count/5*100)+"%";
+    const progressFill =
+        document.getElementById("progressFill");
+
+    if(progressNumber){
+
+        progressNumber.textContent =
+            count;
+
+    }
+
+    if(progressFill){
+
+        progressFill.style.width =
+            (count / 5 * 100) + "%";
+
+    }
 
 }
 
@@ -2010,10 +2098,12 @@ function openVideo(){
 
     openModal("videoModal");
 
-    const video=
+    const video =
         document.getElementById("mainVideo");
 
-    video.currentTime=0;
+    if(!video) return;
+
+    video.currentTime = 0;
 
     setTimeout(()=>{
 
@@ -2025,10 +2115,16 @@ function openVideo(){
 
 function closeVideo(){
 
-    const video=
+    const video =
         document.getElementById("mainVideo");
 
-    video.pause();
+    if(video){
+
+        video.pause();
+
+        video.currentTime = 0;
+
+    }
 
     closeModal("videoModal");
 
@@ -2077,61 +2173,198 @@ function openFinal(){
 
 /* =========================================================
    MUSIC
+   FILE: birthday-song.mp3
 ========================================================= */
 
-let musicPlaying=false;
+const music =
+    document.getElementById("music");
+
+const vinyl =
+    document.getElementById("vinyl");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+let musicPlaying = false;
+
+
+/* ---------------------------------------------------------
+   PLAY / PAUSE
+--------------------------------------------------------- */
 
 function toggleMusic(){
 
-    const music=
-        document.getElementById("music");
+    if(!music){
 
-    const vinyl=
-        document.getElementById("vinyl");
+        console.error(
+            "Audio element was not found."
+        );
 
-    const button=
-        document.getElementById("musicButton");
+        return;
 
-    if(!musicPlaying){
+    }
 
-        music.play().then(()=>{
 
-            musicPlaying=true;
+    /* ================================================
+       PLAY
+    ================================================ */
 
-            vinyl.classList.add("playing");
+    if(music.paused){
 
-            button.textContent=
-                "❚❚ Pause Music";
+        music.play()
 
-        }).catch(()=>{
+        .then(()=>{
+
+            musicPlaying = true;
+
+            if(vinyl){
+                vinyl.classList.add("playing");
+            }
+
+            if(musicButton){
+
+                musicButton.textContent =
+                    "❚❚ Pause Music";
+
+            }
+
+        })
+
+        .catch((error)=>{
+
+            console.error(
+                "Audio playback failed:",
+                error
+            );
+
+            musicPlaying = false;
+
+            if(vinyl){
+                vinyl.classList.remove("playing");
+            }
+
+            if(musicButton){
+
+                musicButton.textContent =
+                    "▶ Play Birthday Music";
+
+            }
 
             alert(
-                "Please add birthday-song.mp3 to the same folder."
+                "Music file load nahi hui.\n\n" +
+                "Check karo:\n" +
+                "birthday-song.mp3\n\n" +
+                "aur index.html same folder mein hain."
             );
 
         });
 
-    }else{
+    }
+
+
+    /* ================================================
+       PAUSE
+    ================================================ */
+
+    else{
 
         music.pause();
-
-        musicPlaying=false;
-
-        vinyl.classList.remove("playing");
-
-        button.textContent=
-            "▶ Play Birthday Music";
 
     }
 
 }
 
 
+/* ---------------------------------------------------------
+   AUDIO PLAY EVENT
+--------------------------------------------------------- */
+
+music.addEventListener("play",()=>{
+
+    musicPlaying = true;
+
+    if(vinyl){
+
+        vinyl.classList.add("playing");
+
+    }
+
+    if(musicButton){
+
+        musicButton.textContent =
+            "❚❚ Pause Music";
+
+    }
+
+});
+
+
+/* ---------------------------------------------------------
+   AUDIO PAUSE EVENT
+--------------------------------------------------------- */
+
+music.addEventListener("pause",()=>{
+
+    musicPlaying = false;
+
+    if(vinyl){
+
+        vinyl.classList.remove("playing");
+
+    }
+
+    if(musicButton){
+
+        musicButton.textContent =
+            "▶ Play Birthday Music";
+
+    }
+
+});
+
+
+/* ---------------------------------------------------------
+   AUDIO ENDED EVENT
+--------------------------------------------------------- */
+
+music.addEventListener("ended",()=>{
+
+    musicPlaying = false;
+
+    if(vinyl){
+
+        vinyl.classList.remove("playing");
+
+    }
+
+    if(musicButton){
+
+        musicButton.textContent =
+            "▶ Play Birthday Music";
+
+    }
+
+});
+
+
+/* ---------------------------------------------------------
+   AUDIO ERROR
+--------------------------------------------------------- */
+
+music.addEventListener("error",()=>{
+
+    console.error(
+        "ERROR: birthday-song.mp3 could not be loaded."
+    );
+
+});
+
+
 /* =========================================================
    SCROLL REVEAL
 ========================================================= */
 
-const observer=
+const observer =
     new IntersectionObserver(
 
         entries=>{
@@ -2156,10 +2389,13 @@ const observer=
 
     );
 
+
 document
     .querySelectorAll(".reveal")
     .forEach(el=>{
+
         observer.observe(el);
+
     });
 
 
@@ -2169,87 +2405,110 @@ document
 
 function celebration(){
 
-    const colors=[
+    const colors = [
+
         "#f8e7ae",
         "#d9b363",
         "#ffffff",
         "#c99a40",
         "#ead69b"
+
     ];
 
     for(let i=0;i<180;i++){
 
-        const c=
+        const c =
             document.createElement("div");
 
-        c.style.position="fixed";
-        c.style.left="50vw";
-        c.style.top="50vh";
+        c.style.position =
+            "fixed";
 
-        c.style.width=
-            (3+Math.random()*5)+"px";
+        c.style.left =
+            "50vw";
 
-        c.style.height=
-            (6+Math.random()*10)+"px";
+        c.style.top =
+            "50vh";
 
-        c.style.borderRadius="2px";
+        c.style.width =
+            (3 + Math.random()*5) + "px";
 
-        c.style.background=
+        c.style.height =
+            (6 + Math.random()*10) + "px";
+
+        c.style.borderRadius =
+            "2px";
+
+        c.style.background =
             colors[
                 Math.floor(
                     Math.random()*colors.length
                 )
             ];
 
-        c.style.zIndex="150";
+        c.style.zIndex =
+            "150";
 
-        c.style.pointerEvents="none";
+        c.style.pointerEvents =
+            "none";
 
         document.body.appendChild(c);
 
-        const x=
+        const x =
             (Math.random()-.5)
-            *window.innerWidth*1.7;
+            * window.innerWidth
+            * 1.7;
 
-        const y=
+        const y =
             (Math.random()-.5)
-            *window.innerHeight*1.5;
+            * window.innerHeight
+            * 1.5;
 
-        const rotate=
+        const rotate =
             Math.random()*1000-500;
 
         c.animate(
 
             [
+
                 {
+
                     transform:
                         "translate(-50%,-50%) scale(1) rotate(0deg)",
+
                     opacity:1
+
                 },
 
                 {
+
                     transform:
                         `translate(${x}px,${y}px)
                          scale(.15)
                          rotate(${rotate}deg)`,
+
                     opacity:0
+
                 }
 
             ],
 
             {
+
                 duration:
-                    1800+
+                    1800 +
                     Math.random()*1500,
 
                 easing:
                     "cubic-bezier(.12,.7,.25,1)"
+
             }
 
         );
 
         setTimeout(()=>{
+
             c.remove();
+
         },3500);
 
     }
@@ -2265,16 +2524,25 @@ document.addEventListener(
     "keydown",
     e=>{
 
-        if(e.key==="Escape"){
+        if(e.key === "Escape"){
 
             document
                 .querySelectorAll(".modal.open")
                 .forEach(modal=>{
 
-                    if(modal.id==="videoModal"){
+                    if(
+                        modal.id ===
+                        "videoModal"
+                    ){
+
                         closeVideo();
+
                     }else{
-                        closeModal(modal.id);
+
+                        closeModal(
+                            modal.id
+                        );
+
                     }
 
                 });
