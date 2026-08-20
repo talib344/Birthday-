@@ -1,0 +1,2290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>For Zahreen ✦ The Birthday Experience</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#030303;
+    color:#f7f1e5;
+    font-family:'DM Sans',sans-serif;
+    overflow-x:hidden;
+}
+
+body.lock{
+    overflow:hidden;
+}
+
+button{
+    font-family:inherit;
+}
+
+button:focus{
+    outline:none;
+}
+
+/* =========================================================
+   GLOBAL BACKGROUND
+========================================================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-20;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(218,173,75,.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(164,112,35,.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #020202,
+            #0a0907 50%,
+            #020202
+        );
+}
+
+.background::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        );
+    background-size:60px 60px;
+    mask-image:linear-gradient(
+        to bottom,
+        black,
+        transparent 80%
+    );
+}
+
+/* =========================================================
+   LIGHT ORBS
+========================================================= */
+
+.light{
+    position:fixed;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:#d4a94f;
+    filter:blur(150px);
+    opacity:.055;
+    pointer-events:none;
+    z-index:-10;
+    animation:lightMove 14s ease-in-out infinite alternate;
+}
+
+.light.one{
+    top:-220px;
+    left:-180px;
+}
+
+.light.two{
+    bottom:-230px;
+    right:-180px;
+    animation-delay:4s;
+}
+
+@keyframes lightMove{
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(80px,70px) scale(1.15);
+    }
+}
+
+/* =========================================================
+   GRAIN
+========================================================= */
+
+.grain{
+    position:fixed;
+    inset:-50%;
+    width:200%;
+    height:200%;
+    pointer-events:none;
+    z-index:90;
+    opacity:.025;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grain .18s steps(2) infinite;
+}
+
+@keyframes grain{
+    0%{transform:translate(0,0)}
+    25%{transform:translate(2%,-1%)}
+    50%{transform:translate(-1%,2%)}
+    75%{transform:translate(1%,1%)}
+    100%{transform:translate(-2%,-1%)}
+}
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.particle{
+    position:fixed;
+    width:2px;
+    height:2px;
+    background:#e4c272;
+    border-radius:50%;
+    box-shadow:0 0 9px rgba(235,199,116,.9);
+    pointer-events:none;
+    z-index:-5;
+    animation:floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+    from{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    80%{
+        opacity:.5;
+    }
+
+    to{
+        transform:translateY(-15vh);
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   LOADING SCREEN
+========================================================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#030303;
+    z-index:200;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    transition:opacity 1s ease,visibility 1s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-symbol{
+    font-family:'Cormorant Garamond',serif;
+    color:#dfbb69;
+    font-size:38px;
+    margin-bottom:20px;
+    animation:pulse 2s infinite;
+}
+
+.loader-text{
+    font-size:9px;
+    letter-spacing:4px;
+    color:rgba(255,255,255,.45);
+    text-transform:uppercase;
+}
+
+.loader-line{
+    width:100px;
+    height:1px;
+    margin-top:20px;
+    background:#302818;
+    overflow:hidden;
+}
+
+.loader-line::after{
+    content:"";
+    display:block;
+    height:100%;
+    width:100%;
+    background:#d8b465;
+    transform:translateX(-100%);
+    animation:load 1.8s ease forwards;
+}
+
+@keyframes load{
+    to{
+        transform:translateX(0);
+    }
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.12);
+        text-shadow:0 0 30px rgba(220,180,90,.45);
+    }
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main{
+    position:relative;
+    z-index:2;
+}
+
+/* =========================================================
+   OPENING
+========================================================= */
+
+.hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px 20px 70px;
+    position:relative;
+}
+
+.eyebrow{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#d9b76c;
+    font-size:9px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:24px;
+    animation:fadeUp 1.4s .2s both;
+}
+
+.eyebrow::before,
+.eyebrow::after{
+    content:"";
+    width:35px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #caa758
+    );
+}
+
+.eyebrow::after{
+    background:linear-gradient(
+        90deg,
+        #caa758,
+        transparent
+    );
+}
+
+.hero-small{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.4rem,9vw,5.5rem);
+    line-height:.85;
+    font-weight:500;
+    animation:fadeUp 1.4s .3s both;
+}
+
+.hero-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(5rem,22vw,12rem);
+    line-height:.78;
+    letter-spacing:-4px;
+    font-weight:600;
+    margin:18px 0 25px;
+
+    background:
+        linear-gradient(
+            110deg,
+            #8c6729,
+            #f5db91,
+            #fff6d4,
+            #c39540,
+            #f2d58a
+        );
+
+    background-size:300% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    filter:
+        drop-shadow(
+            0 20px 40px
+            rgba(190,143,51,.15)
+        );
+
+    animation:
+        goldShine 7s linear infinite,
+        fadeUp 1.5s .4s both;
+}
+
+@keyframes goldShine{
+    to{
+        background-position:300% center;
+    }
+}
+
+.hero-divider{
+    width:80px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #d6b260,
+        transparent
+    );
+    margin-bottom:22px;
+    animation:fadeUp 1.4s .5s both;
+}
+
+.hero-description{
+    max-width:420px;
+    color:rgba(255,255,255,.6);
+    font-weight:300;
+    font-size:.9rem;
+    line-height:1.8;
+    animation:fadeUp 1.4s .6s both;
+}
+
+.enter-btn{
+    margin-top:30px;
+    border:1px solid rgba(218,184,100,.55);
+    background:linear-gradient(
+        135deg,
+        #e6c978,
+        #9b7128
+    );
+    color:#110d05;
+    border-radius:100px;
+    padding:15px 29px;
+    min-width:210px;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    box-shadow:
+        0 15px 45px rgba(183,139,52,.18);
+    transition:.35s;
+    animation:fadeUp 1.4s .7s both;
+}
+
+.enter-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 20px 60px rgba(201,158,66,.3);
+}
+
+.scroll{
+    position:absolute;
+    bottom:25px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    color:rgba(255,255,255,.3);
+    font-size:7px;
+    letter-spacing:3px;
+}
+
+.scroll-line{
+    width:1px;
+    height:35px;
+    background:linear-gradient(
+        #d4b467,
+        transparent
+    );
+    animation:scroll 1.8s infinite;
+}
+
+@keyframes scroll{
+    50%{
+        transform:scaleY(.4);
+        transform-origin:top;
+    }
+}
+
+/* =========================================================
+   EXPERIENCE HEADER
+========================================================= */
+
+.experience{
+    padding:110px 18px 40px;
+}
+
+.container{
+    width:min(900px,100%);
+    margin:auto;
+}
+
+.section-intro{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-label{
+    color:#d5b365;
+    font-size:9px;
+    font-weight:600;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:13px;
+}
+
+.section-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.8rem,9vw,5rem);
+    line-height:.9;
+    font-weight:600;
+}
+
+.section-subtitle{
+    margin:17px auto 0;
+    max-width:400px;
+    color:rgba(255,255,255,.45);
+    font-size:.82rem;
+    line-height:1.7;
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-wrap{
+    width:min(500px,100%);
+    margin:0 auto 45px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    color:rgba(255,255,255,.35);
+    font-size:8px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.progress-bar{
+    height:2px;
+    background:rgba(255,255,255,.08);
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(
+        90deg,
+        #9c762f,
+        #f0d48b
+    );
+    transition:width .8s ease;
+}
+
+/* =========================================================
+   GIFT GRID
+========================================================= */
+
+.gifts{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.gift-card{
+    position:relative;
+    min-height:270px;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.11);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.018)
+        );
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+    padding:28px 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    cursor:pointer;
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.gift-card::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:#d4a84f;
+    filter:blur(80px);
+    opacity:.06;
+    transition:.5s;
+}
+
+.gift-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(220,184,96,.3);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.35);
+}
+
+.gift-card:hover::before{
+    opacity:.12;
+}
+
+.gift-number{
+    position:absolute;
+    top:17px;
+    left:18px;
+    color:rgba(255,255,255,.25);
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+.gift-icon{
+    width:72px;
+    height:72px;
+    border-radius:20px;
+    border:1px solid rgba(216,180,94,.25);
+    background:rgba(255,255,255,.035);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    margin-bottom:20px;
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.2);
+    transition:.4s;
+}
+
+.gift-card:hover .gift-icon{
+    transform:translateY(-5px) rotate(2deg);
+    box-shadow:
+        0 15px 40px rgba(205,165,76,.12);
+}
+
+.gift-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.65rem;
+    margin-bottom:7px;
+}
+
+.gift-description{
+    color:rgba(255,255,255,.4);
+    font-size:.72rem;
+    line-height:1.6;
+}
+
+.locked{
+    opacity:.55;
+}
+
+.locked .gift-icon{
+    filter:grayscale(1);
+}
+
+.unlocked{
+    opacity:1;
+}
+
+/* =========================================================
+   FULL WIDTH VIDEO GIFT
+========================================================= */
+
+.video-gift{
+    grid-column:1/-1;
+    min-height:320px;
+}
+
+.video-thumb{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+}
+
+.video-thumb video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:
+        brightness(.28)
+        contrast(1.1)
+        saturate(.65);
+    transition:transform 1s ease;
+}
+
+.video-gift:hover .video-thumb video{
+    transform:scale(1.06);
+}
+
+.video-content{
+    position:relative;
+    z-index:2;
+}
+
+.play-circle{
+    width:74px;
+    height:74px;
+    border-radius:50%;
+    border:1px solid rgba(240,213,145,.55);
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(12px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    margin-bottom:18px;
+    box-shadow:
+        0 0 50px rgba(216,178,84,.12);
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:120;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(20px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    opacity:0;
+    visibility:hidden;
+    transition:.4s;
+}
+
+.modal.open{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal-box{
+    width:min(720px,100%);
+    max-height:90svh;
+    overflow:auto;
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,.13);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22,20,16,.98),
+            rgba(7,7,7,.98)
+        );
+    box-shadow:
+        0 40px 120px rgba(0,0,0,.7);
+    position:relative;
+    transform:translateY(25px) scale(.97);
+    transition:.45s;
+}
+
+.modal.open .modal-box{
+    transform:translateY(0) scale(1);
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(0,0,0,.4);
+    color:#fff;
+    cursor:pointer;
+    z-index:10;
+}
+
+/* =========================================================
+   LETTER MODAL
+========================================================= */
+
+.letter{
+    padding:55px 28px;
+    text-align:center;
+}
+
+.letter-seal{
+    width:60px;
+    height:60px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    border:1px solid #b99243;
+    color:#d9b96d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+}
+
+.letter h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.letter-text{
+    color:rgba(255,255,255,.7);
+    line-height:2;
+    font-size:.92rem;
+}
+
+.signature{
+    margin-top:30px;
+    font-family:'Cormorant Garamond',serif;
+    color:#d8b568;
+    font-size:1.7rem;
+}
+
+/* =========================================================
+   VIDEO MODAL
+========================================================= */
+
+.video-modal-content{
+    padding:15px;
+}
+
+.video-player{
+    width:100%;
+    max-height:70vh;
+    border-radius:20px;
+    background:#000;
+    display:block;
+}
+
+.video-caption{
+    padding:20px 10px 10px;
+    text-align:center;
+}
+
+.video-caption h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.4rem;
+}
+
+.video-caption p{
+    margin-top:6px;
+    color:rgba(255,255,255,.45);
+    font-size:.75rem;
+}
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery{
+    padding:100px 18px;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.photo{
+    aspect-ratio:1/1.15;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.1);
+    background:
+        linear-gradient(
+            135deg,
+            #15130e,
+            #080808
+        );
+    position:relative;
+}
+
+.photo:nth-child(2){
+    transform:translateY(25px);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .7s;
+}
+
+.photo:hover img{
+    transform:scale(1.06);
+}
+
+.photo::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        180deg,
+        transparent 60%,
+        rgba(0,0,0,.5)
+    );
+    pointer-events:none;
+}
+
+/* =========================================================
+   MUSIC GIFT
+========================================================= */
+
+.music-section{
+    padding:80px 18px 120px;
+}
+
+.music-card{
+    width:min(620px,100%);
+    margin:auto;
+    padding:35px 25px;
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,.11);
+    background:rgba(255,255,255,.035);
+    backdrop-filter:blur(25px);
+    text-align:center;
+}
+
+.vinyl{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    margin:0 auto 25px;
+    background:
+        repeating-radial-gradient(
+            circle,
+            #111 0px,
+            #111 4px,
+            #1a1a1a 5px,
+            #080808 7px
+        );
+    border:1px solid #333;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.6);
+}
+
+.vinyl.playing{
+    animation:spin 3s linear infinite;
+}
+
+.vinyl-center{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:#d0a64f;
+    border:6px solid #15120b;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.music-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.3rem;
+}
+
+.music-sub{
+    color:rgba(255,255,255,.4);
+    font-size:.75rem;
+    margin:6px 0 22px;
+}
+
+.music-button{
+    border:1px solid rgba(216,181,99,.35);
+    background:rgba(216,181,99,.07);
+    color:#e7cb8c;
+    padding:12px 22px;
+    border-radius:100px;
+    cursor:pointer;
+    font-size:9px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+/* =========================================================
+   FINAL GIFT
+========================================================= */
+
+.final{
+    min-height:100svh;
+    padding:100px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.final-inner{
+    width:min(700px,100%);
+}
+
+.final-symbol{
+    font-size:50px;
+    margin-bottom:20px;
+    animation:heart 2s ease-in-out infinite;
+}
+
+@keyframes heart{
+    50%{
+        transform:scale(1.12);
+        filter:drop-shadow(
+            0 0 25px
+            rgba(218,172,69,.35)
+        );
+    }
+}
+
+.final-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(3rem,11vw,6rem);
+    line-height:.9;
+    margin-bottom:25px;
+}
+
+.final-title span{
+    color:#d9b66a;
+}
+
+.final-message{
+    color:rgba(255,255,255,.62);
+    font-size:.95rem;
+    line-height:2;
+    max-width:500px;
+    margin:auto;
+}
+
+.final-name{
+    margin-top:35px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    color:#dfbe75;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    text-align:center;
+    padding:30px 20px 45px;
+    color:rgba(255,255,255,.25);
+    font-size:8px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+footer span{
+    color:#d6b366;
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .hero-name{
+        font-size:22vw;
+        letter-spacing:-2px;
+    }
+
+    .hero-small{
+        font-size:10vw;
+    }
+
+    .hero-description{
+        max-width:330px;
+        font-size:.84rem;
+    }
+
+    .gifts{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .gift-card{
+        min-height:245px;
+        padding:22px 12px;
+        border-radius:21px;
+    }
+
+    .gift-icon{
+        width:60px;
+        height:60px;
+        font-size:24px;
+        border-radius:17px;
+    }
+
+    .gift-title{
+        font-size:1.45rem;
+    }
+
+    .gift-description{
+        font-size:.66rem;
+    }
+
+    .video-gift{
+        min-height:300px;
+    }
+
+    .letter{
+        padding:48px 22px;
+    }
+
+    .letter h2{
+        font-size:2.6rem;
+    }
+
+    .letter-text{
+        font-size:.86rem;
+        line-height:1.9;
+    }
+
+    .gallery-grid{
+        gap:8px;
+    }
+
+    .photo{
+        border-radius:16px;
+    }
+
+    .music-card{
+        padding:30px 18px;
+    }
+
+    .section-title{
+        font-size:3.2rem;
+    }
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media(min-width:900px){
+
+    .gift-card{
+        min-height:330px;
+    }
+
+    .gifts{
+        gap:20px;
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .photo:nth-child(2){
+        transform:none;
+    }
+}
+
+</style>
+</head>
+
+<body class="lock">
+
+<!-- =======================================================
+     BACKGROUND
+======================================================= -->
+
+<div class="background"></div>
+<div class="light one"></div>
+<div class="light two"></div>
+<div class="grain"></div>
+
+
+<!-- =======================================================
+     LOADER
+======================================================= -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-symbol">✦</div>
+
+    <div class="loader-text">
+        Preparing something special
+    </div>
+
+    <div class="loader-line"></div>
+
+</div>
+
+
+<!-- =======================================================
+     PARTICLES
+======================================================= -->
+
+<script>
+
+for(let i=0;i<45;i++){
+
+    const p=document.createElement("div");
+
+    p.className="particle";
+
+    p.style.left=Math.random()*100+"vw";
+
+    p.style.animationDuration=
+        (10+Math.random()*16)+"s";
+
+    p.style.animationDelay=
+        (-Math.random()*20)+"s";
+
+    p.style.opacity=
+        .2+Math.random()*.6;
+
+    document.body.appendChild(p);
+}
+
+</script>
+
+
+<main>
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+    <div class="eyebrow">
+        A Private Birthday Experience
+    </div>
+
+    <div class="hero-small">
+        Happy Birthday
+    </div>
+
+    <h1 class="hero-name">
+        ZAHREEN
+    </h1>
+
+    <div class="hero-divider"></div>
+
+    <p class="hero-description">
+
+        A small digital world created
+        for one very special person.
+
+    </p>
+
+    <button
+        class="enter-btn"
+        onclick="enterExperience()">
+
+        Enter Your Experience ✦
+
+    </button>
+
+    <div class="scroll">
+
+        <span>SCROLL</span>
+
+        <div class="scroll-line"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     GIFTS
+======================================================= -->
+
+<section class="experience" id="experience">
+
+<div class="container">
+
+    <div class="section-intro reveal">
+
+        <div class="section-label">
+            Your Birthday Collection
+        </div>
+
+        <h2 class="section-title">
+            Five Little Gifts
+        </h2>
+
+        <p class="section-subtitle">
+            Take your time. Each one was made
+            to reveal something special.
+        </p>
+
+    </div>
+
+
+    <div class="progress-wrap reveal">
+
+        <div class="progress-top">
+
+            <span>Your Journey</span>
+
+            <span>
+                <b id="progressNumber">0</b> / 5
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="gifts">
+
+
+        <!-- =================================================
+             GIFT 1
+        ================================================= -->
+
+        <div
+            class="gift-card reveal"
+            onclick="openLetter()"
+            data-gift="1">
+
+            <div class="gift-number">
+                GIFT 01
+            </div>
+
+            <div class="gift-icon">
+                💌
+            </div>
+
+            <h3 class="gift-title">
+                A Secret Letter
+            </h3>
+
+            <p class="gift-description">
+                Something I wanted you to read.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             GIFT 2
+        ================================================= -->
+
+        <div
+            class="gift-card reveal"
+            onclick="openReason()"
+            data-gift="2">
+
+            <div class="gift-number">
+                GIFT 02
+            </div>
+
+            <div class="gift-icon">
+                ✨
+            </div>
+
+            <h3 class="gift-title">
+                Why You're Special
+            </h3>
+
+            <p class="gift-description">
+                Five little reasons.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             GIFT 3 — VIDEO
+        ================================================= -->
+
+        <div
+            class="gift-card video-gift reveal"
+            onclick="openVideo()"
+            data-gift="3">
+
+            <div class="video-thumb">
+
+                <video
+                    autoplay
+                    muted
+                    loop
+                    playsinline>
+
+                    <source
+                        src="Zahreen-video.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="video-content">
+
+                <div class="play-circle">
+                    ▶
+                </div>
+
+                <h3 class="gift-title">
+                    A Memory In Motion
+                </h3>
+
+                <p class="gift-description">
+                    Your special video is waiting here.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             GIFT 4
+        ================================================= -->
+
+        <div
+            class="gift-card reveal"
+            onclick="openGallery()"
+            data-gift="4">
+
+            <div class="gift-number">
+                GIFT 04
+            </div>
+
+            <div class="gift-icon">
+                📸
+            </div>
+
+            <h3 class="gift-title">
+                Little Memories
+            </h3>
+
+            <p class="gift-description">
+                Moments worth keeping.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             GIFT 5
+        ================================================= -->
+
+        <div
+            class="gift-card reveal"
+            onclick="openFinal()"
+            data-gift="5">
+
+            <div class="gift-number">
+                GIFT 05
+            </div>
+
+            <div class="gift-icon">
+                🎁
+            </div>
+
+            <h3 class="gift-title">
+                The Final Gift
+            </h3>
+
+            <p class="gift-description">
+                The most important one.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     GALLERY
+======================================================= -->
+
+<section
+    class="gallery reveal"
+    id="gallery">
+
+<div class="container">
+
+    <div class="section-intro">
+
+        <div class="section-label">
+            Memories
+        </div>
+
+        <h2 class="section-title">
+            Moments
+        </h2>
+
+        <p class="section-subtitle">
+            Replace these images with your
+            favorite memories together.
+        </p>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+        <div class="photo">
+            <img
+                src="photo1.jpg"
+                alt="Memory 1"
+                onerror="this.style.display='none'">
+        </div>
+
+        <div class="photo">
+            <img
+                src="photo2.jpg"
+                alt="Memory 2"
+                onerror="this.style.display='none'">
+        </div>
+
+        <div class="photo">
+            <img
+                src="photo3.jpg"
+                alt="Memory 3"
+                onerror="this.style.display='none'">
+        </div>
+
+        <div class="photo">
+            <img
+                src="photo4.jpg"
+                alt="Memory 4"
+                onerror="this.style.display='none'">
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     MUSIC
+======================================================= -->
+
+<section
+    class="music-section reveal"
+    id="music">
+
+<div class="music-card">
+
+    <div
+        class="vinyl"
+        id="vinyl">
+
+        <div class="vinyl-center"></div>
+
+    </div>
+
+    <h2 class="music-title">
+        A Song For You
+    </h2>
+
+    <p class="music-sub">
+        Put on your headphones ✦
+    </p>
+
+    <button
+        class="music-button"
+        onclick="toggleMusic()"
+        id="musicButton">
+
+        ▶ Play Birthday Music
+
+    </button>
+
+    <audio
+        id="music"
+        src="birthday-song.mp3"
+        loop>
+    </audio>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     FINAL
+======================================================= -->
+
+<section
+    class="final reveal"
+    id="final">
+
+<div class="final-inner">
+
+    <div class="final-symbol">
+        ♡
+    </div>
+
+    <div class="section-label">
+        The Final Gift
+    </div>
+
+    <h2 class="final-title">
+
+        Happy Birthday,
+        <span>Zahreen.</span>
+
+    </h2>
+
+    <p class="final-message">
+
+        May this new chapter of your life
+        bring you the kind of happiness
+        you don't have to search for.
+
+        <br><br>
+
+        May your dreams become plans,
+        your plans become memories,
+        and your memories become stories
+        you'll always smile about.
+
+        <br><br>
+
+        And wherever life takes you...
+
+        <br>
+
+        <strong>
+            never forget how special you are.
+        </strong>
+
+    </p>
+
+    <div class="final-name">
+        — Made specially for you ✦
+    </div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+    Crafted with <span>♡</span>
+    for Zahreen
+
+</footer>
+
+</main>
+
+
+<!-- =======================================================
+     LETTER MODAL
+======================================================= -->
+
+<div
+    class="modal"
+    id="letterModal"
+    onclick="outsideClose(event,'letterModal')">
+
+<div class="modal-box">
+
+    <button
+        class="close"
+        onclick="closeModal('letterModal')">
+        ×
+    </button>
+
+    <div class="letter">
+
+        <div class="letter-seal">
+            Z
+        </div>
+
+        <h2>
+            Dear Zahreen
+        </h2>
+
+        <div class="letter-text">
+
+            Aaj ka din sirf tumhari birthday
+            ki wajah se special nahi hai...
+
+            <br><br>
+
+            It's special because
+            <strong>you</strong> exist.
+
+            <br><br>
+
+            Tum meri life ki un beautiful
+            memories mein se ho jinke liye
+            simple words kabhi enough nahi hote.
+
+            <br><br>
+
+            Tumhari smile,
+            tumhari personality,
+            tumhari little little things...
+
+            <br><br>
+
+            sab kuch apne aap mein special hai.
+
+            <br><br>
+
+            I genuinely hope ke tumhari
+            life mein woh sab aaye
+            jo tumhara dil chahta hai.
+
+            <br><br>
+
+            Happy Birthday,
+            Zahreen. ❤️
+
+        </div>
+
+        <div class="signature">
+            With a little extra care ✦
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     REASONS MODAL
+======================================================= -->
+
+<div
+    class="modal"
+    id="reasonModal"
+    onclick="outsideClose(event,'reasonModal')">
+
+<div class="modal-box">
+
+    <button
+        class="close"
+        onclick="closeModal('reasonModal')">
+        ×
+    </button>
+
+    <div class="letter">
+
+        <div class="letter-seal">
+            ✦
+        </div>
+
+        <h2>
+            Five Reasons
+        </h2>
+
+        <div class="letter-text">
+
+            <strong>01 — Your Smile</strong>
+
+            <br>
+            Because some smiles make
+            everything feel a little better.
+
+            <br><br>
+
+            <strong>02 — Your Heart</strong>
+
+            <br>
+            Genuine kindness is rare.
+            That's what makes it beautiful.
+
+            <br><br>
+
+            <strong>03 — Your Presence</strong>
+
+            <br>
+            Some people don't need to say much
+            to make a moment special.
+
+            <br><br>
+
+            <strong>04 — The Memories</strong>
+
+            <br>
+            The little moments often become
+            the ones we remember the longest.
+
+            <br><br>
+
+            <strong>05 — Simply You</strong>
+
+            <br>
+            No complicated reason.
+            You're just special.
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     VIDEO MODAL
+======================================================= -->
+
+<div
+    class="modal"
+    id="videoModal"
+    onclick="outsideClose(event,'videoModal')">
+
+<div class="modal-box">
+
+    <button
+        class="close"
+        onclick="closeVideo()">
+        ×
+    </button>
+
+    <div class="video-modal-content">
+
+        <video
+            id="mainVideo"
+            class="video-player"
+            controls
+            playsinline>
+
+            <source
+                src="Zahreen-video.mp4"
+                type="video/mp4">
+
+        </video>
+
+        <div class="video-caption">
+
+            <h2>
+                A Little Memory
+            </h2>
+
+            <p>
+                Some moments deserve their own place.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        document
+            .getElementById("loader")
+            .classList
+            .add("hide");
+
+        document.body.classList.remove("lock");
+
+    },1800);
+
+});
+
+
+/* =========================================================
+   ENTER EXPERIENCE
+========================================================= */
+
+function enterExperience(){
+
+    document
+        .getElementById("experience")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+function openModal(id){
+
+    document
+        .getElementById(id)
+        .classList
+        .add("open");
+
+    document.body.classList.add("lock");
+
+}
+
+function closeModal(id){
+
+    document
+        .getElementById(id)
+        .classList
+        .remove("open");
+
+    document.body.classList.remove("lock");
+
+}
+
+function outsideClose(e,id){
+
+    if(e.target.id===id){
+
+        closeModal(id);
+
+    }
+
+}
+
+
+/* =========================================================
+   GIFTS
+========================================================= */
+
+let giftsOpened=new Set();
+
+function markGift(number){
+
+    if(!giftsOpened.has(number)){
+
+        giftsOpened.add(number);
+
+        updateProgress();
+
+    }
+
+}
+
+function updateProgress(){
+
+    const count=giftsOpened.size;
+
+    document
+        .getElementById("progressNumber")
+        .textContent=count;
+
+    document
+        .getElementById("progressFill")
+        .style.width=
+            (count/5*100)+"%";
+
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+function openLetter(){
+
+    markGift(1);
+
+    openModal("letterModal");
+
+}
+
+
+/* =========================================================
+   REASONS
+========================================================= */
+
+function openReason(){
+
+    markGift(2);
+
+    openModal("reasonModal");
+
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+function openVideo(){
+
+    markGift(3);
+
+    openModal("videoModal");
+
+    const video=
+        document.getElementById("mainVideo");
+
+    video.currentTime=0;
+
+    setTimeout(()=>{
+
+        video.play().catch(()=>{});
+
+    },400);
+
+}
+
+function closeVideo(){
+
+    const video=
+        document.getElementById("mainVideo");
+
+    video.pause();
+
+    closeModal("videoModal");
+
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+function openGallery(){
+
+    markGift(4);
+
+    document
+        .getElementById("gallery")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+function openFinal(){
+
+    markGift(5);
+
+    document
+        .getElementById("final")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+    setTimeout(()=>{
+
+        celebration();
+
+    },900);
+
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+let musicPlaying=false;
+
+function toggleMusic(){
+
+    const music=
+        document.getElementById("music");
+
+    const vinyl=
+        document.getElementById("vinyl");
+
+    const button=
+        document.getElementById("musicButton");
+
+    if(!musicPlaying){
+
+        music.play().then(()=>{
+
+            musicPlaying=true;
+
+            vinyl.classList.add("playing");
+
+            button.textContent=
+                "❚❚ Pause Music";
+
+        }).catch(()=>{
+
+            alert(
+                "Please add birthday-song.mp3 to the same folder."
+            );
+
+        });
+
+    }else{
+
+        music.pause();
+
+        musicPlaying=false;
+
+        vinyl.classList.remove("playing");
+
+        button.textContent=
+            "▶ Play Birthday Music";
+
+    }
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const observer=
+    new IntersectionObserver(
+
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.1
+        }
+
+    );
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(el=>{
+        observer.observe(el);
+    });
+
+
+/* =========================================================
+   CELEBRATION
+========================================================= */
+
+function celebration(){
+
+    const colors=[
+        "#f8e7ae",
+        "#d9b363",
+        "#ffffff",
+        "#c99a40",
+        "#ead69b"
+    ];
+
+    for(let i=0;i<180;i++){
+
+        const c=
+            document.createElement("div");
+
+        c.style.position="fixed";
+        c.style.left="50vw";
+        c.style.top="50vh";
+
+        c.style.width=
+            (3+Math.random()*5)+"px";
+
+        c.style.height=
+            (6+Math.random()*10)+"px";
+
+        c.style.borderRadius="2px";
+
+        c.style.background=
+            colors[
+                Math.floor(
+                    Math.random()*colors.length
+                )
+            ];
+
+        c.style.zIndex="150";
+
+        c.style.pointerEvents="none";
+
+        document.body.appendChild(c);
+
+        const x=
+            (Math.random()-.5)
+            *window.innerWidth*1.7;
+
+        const y=
+            (Math.random()-.5)
+            *window.innerHeight*1.5;
+
+        const rotate=
+            Math.random()*1000-500;
+
+        c.animate(
+
+            [
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(1) rotate(0deg)",
+                    opacity:1
+                },
+
+                {
+                    transform:
+                        `translate(${x}px,${y}px)
+                         scale(.15)
+                         rotate(${rotate}deg)`,
+                    opacity:0
+                }
+
+            ],
+
+            {
+                duration:
+                    1800+
+                    Math.random()*1500,
+
+                easing:
+                    "cubic-bezier(.12,.7,.25,1)"
+            }
+
+        );
+
+        setTimeout(()=>{
+            c.remove();
+        },3500);
+
+    }
+
+}
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    e=>{
+
+        if(e.key==="Escape"){
+
+            document
+                .querySelectorAll(".modal.open")
+                .forEach(modal=>{
+
+                    if(modal.id==="videoModal"){
+                        closeVideo();
+                    }else{
+                        closeModal(modal.id);
+                    }
+
+                });
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
